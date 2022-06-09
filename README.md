@@ -5,7 +5,7 @@
 ### Naming the Interface
 All interfaces created should follow the convention below.
 An interface name should be preceded by an ```I``` then followed
-by its ```Name``` then ```Repository```. 
+by its ```Name``` then ```Parent Package Name e.g Repository```. 
 ```
 e.g IStudentRepository.java
 ```
