@@ -42,7 +42,7 @@ For the remaining packages which are repository and service, each domain should 
 |
 |
 ```
-#### You are strictly advised to stick to the naming convention while working on the project, failure to do so will result in the code will being rejected upon reviewing.
+#### You are strictly advised to stick to the naming and packaging convention while working on the project, failure to do so will result in the code being rejected upon reviewing.
 ---
 ## Collaboration Rules
 
