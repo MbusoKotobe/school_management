@@ -15,6 +15,33 @@ class for the interface above should be named.
 ```
 e.g StudentRepositoryImpl.java
 ```
+
+---
+## Packaging
+The Resful API project is made up of 5 packages by default which abide to the DDD Project Architecture.
+- controller
+- domain
+- factory
+- repository
+- service
+
+Within the controller, domain & factory packages, do not add any sub-packages, all source files should be listed inside the package. They should not be within any sub-package.
+
+For the remaining packages which are repository and service, each domain should have a specific package created within the respective package. Within the sub-package of the specific domain, Interfaces of that domain should be defined there. Implementations of the specific Interfaces should be created within a sub-package named 
+> impl
+
+#### See example below of the package structure for studentRepository
+```
+|-- repository
+|  |-- IRepository.java
+|  |-- studentRepository
+|     |-- IStudentRepository.java
+|     |-- impl
+|        |-- StudentRepositoryImpl.java
+|
+|
+|
+```
 #### You are strictly advised to stick to the naming convention while working on the project, failure to do so will result in the code will being rejected upon reviewing.
 ---
 ## Collaboration Rules
