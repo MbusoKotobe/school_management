@@ -1,4 +1,4 @@
-package repository;
+package repository.employeeRepository;
 
 public interface IEmployeeRepository {
 }
