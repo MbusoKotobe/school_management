@@ -1,4 +1,4 @@
-# school_management
+# School Management
 
 ## Repository Interfaces & Classes Naming Convention
 
