@@ -67,6 +67,15 @@ public class City<Country> {
             return country;
         }
 
+        @Override
+        public String toString() {
+            return "Builder{" +
+                    "id='" + id + '\'' +
+                    ", name='" + name + '\'' +
+                    ", country=" + country +
+                    '}';
+        }
+
         public City build() {
             return new City(this);
         }
