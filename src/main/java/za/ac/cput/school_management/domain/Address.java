@@ -2,6 +2,11 @@ package za.ac.cput.school_management.domain;
 
 import java.util.Objects;
 
+/**
+ * @author Mbuso Kotobe (218040385)
+ * Entity for Address
+ * Date: 10 June 2022
+ * */
 public class Address {
     private String unitNumber;
     private String complexName;

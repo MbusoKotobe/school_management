@@ -1,5 +1,10 @@
 package za.ac.cput.school_management.domain;
 
+/**
+ * @author Mbuso Kotobe (218040385)
+ * Entity for Address
+ * Date: 10 June 2022
+ * */
 public class EmployeeAddress {
     private String staffId;
     private Address address;
