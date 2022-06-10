@@ -8,7 +8,7 @@ package domain;
 
 import com.sun.istack.Builder;
 
-public class City<Country> {
+public class City {
     private String id;
     private  String name;
     private Country country;
@@ -23,30 +23,17 @@ public class City<Country> {
         return id;
 
     }
-    public void setId(String id) {
-        this.id = id;
-
-    }
     public String getName() {
         return name;
-    }
 
-    public Void setName(String name) {
-        this.name = name;
-        return null;
     }
 
     public Country getCountry() {
         return country;
+
     }
 
-    public Country setCountry(Country country) {
-        this.country = country;
-
-        return country;
-    }
-
-    public  class Builder {
+    public static class Builder {
         private String id;
         private String name;
         private Country country;
