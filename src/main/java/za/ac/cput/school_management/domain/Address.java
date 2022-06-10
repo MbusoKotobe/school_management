@@ -64,6 +64,7 @@ public class Address {
                 ", streetNumber='" + streetNumber + '\'' +
                 ", streetName='" + streetName + '\'' +
                 ", postalCode='" + postalCode + '\'' +
+                ", city=" + city +
                 '}';
     }
 
@@ -73,13 +74,13 @@ public class Address {
         if (this == o) return true;
         if (!(o instanceof Address)) return false;
         Address address = (Address) o;
-        return unitNumber.equals(address.unitNumber) && complexName.equals(address.complexName) && streetNumber.equals(address.streetNumber) && streetName.equals(address.streetName) && postalCode.equals(address.postalCode);
+        return getUnitNumber().equals(address.getUnitNumber()) && getComplexName().equals(address.getComplexName()) && getStreetNumber().equals(address.getStreetNumber()) && getStreetName().equals(address.getStreetName()) && getPostalCode().equals(address.getPostalCode()) && getCity().equals(address.getCity());
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(unitNumber, complexName, streetNumber, streetName, postalCode);
+        return Objects.hash(getUnitNumber(), getComplexName(), getStreetNumber(), getStreetName(), getPostalCode(), getCity());
     }
 
     public static class Builder
@@ -134,7 +135,7 @@ public class Address {
             this.streetNumber = address.streetNumber;
             this.streetName = address.streetName;
             this.postalCode = address.postalCode;
-            //this.city = address.city;
+            this.city = address.city;
             return this;
         }
 
