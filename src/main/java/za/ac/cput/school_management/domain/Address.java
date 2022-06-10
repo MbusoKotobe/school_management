@@ -8,8 +8,7 @@ public class Address {
     private String streetNumber;
     private String streetName;
     private String postalCode;
-    //TODO: Undo Commenting on the code below.
-    //private City city;
+    private City city;
 
     private Address(Builder builder)
     {
@@ -18,7 +17,37 @@ public class Address {
         this.streetNumber = builder.streetNumber;
         this.streetName = builder.streetName;
         this.postalCode = builder.postalCode;
-        //this.city = builder.city;
+        this.city = builder.city;
+    }
+
+    public String getUnitNumber()
+    {
+        return unitNumber;
+    }
+
+    public String getComplexName()
+    {
+        return complexName;
+    }
+
+    public String getStreetNumber()
+    {
+        return streetNumber;
+    }
+
+    public String getStreetName()
+    {
+        return streetName;
+    }
+
+    public String getPostalCode()
+    {
+        return postalCode;
+    }
+
+    public City getCity()
+    {
+        return city;
     }
 
     @Override
@@ -55,8 +84,7 @@ public class Address {
         private String streetNumber;
         private String streetName;
         private String postalCode;
-        //TODO: Undo Commenting on the code below.
-        //private City city;
+        private City city;
 
         public Builder setUnitNumber(String unitNumber)
         {
@@ -88,11 +116,11 @@ public class Address {
             return this;
         }
 
-        /*public Builder setCity(City city)
+        public Builder setCity(City city)
         {
             this.city = city;
             return this;
-        }*/
+        }
 
         public Builder copy(Address address)
         {
