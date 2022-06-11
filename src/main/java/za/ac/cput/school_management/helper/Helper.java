@@ -19,9 +19,4 @@ public class Helper {
             throw new IllegalArgumentException(String.format("Invalid value for: %s", paramName));
     }
 
-    public static void checkObjectSafety(Object object)
-    {
-        if(object == null)
-            throw new IllegalArgumentException(String.format(object.getClass().getName() + " Object cannot be null"));
-    }
 }

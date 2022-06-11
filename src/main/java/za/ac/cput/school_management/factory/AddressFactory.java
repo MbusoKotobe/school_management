@@ -26,7 +26,7 @@ public class AddressFactory {
         Helper.checkStringParam("streetName", streetName);
         Helper.checkStringParam("postalCode", postalCode);
         validatePostalCode(postalCode);
-        Helper.checkObjectSafety(city);
+        Helper.checkIfObjectIsNull(city);
     }
 
     private static void validatePostalCode(String postalCode) throws IllegalArgumentException
