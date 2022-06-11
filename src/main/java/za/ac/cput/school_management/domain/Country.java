@@ -25,7 +25,13 @@ public class Country {
     public String getCountryName() {
         return countryName;
     }
+    @Override
+    public String toString() {
+        return "country{" +
+                "countryId='" + countryId + '\'' +
+                ", countryName='" + countryName + '\'' + '}';
 
+    }
 
     public static class Builder {
 
@@ -53,13 +59,6 @@ public class Country {
         }
     }
 
-    @Override
-    public String toString() {
-        return "country{" +
-                "countryId='" + countryId + '\'' +
-                ", countryName='" + countryName + '\'' + '}';
-
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -75,4 +74,5 @@ public class Country {
     {
         return Objects.hash(countryId, countryName);
     }
+
 }
