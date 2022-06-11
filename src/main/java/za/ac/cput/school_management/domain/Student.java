@@ -8,14 +8,14 @@ domain: Student entity
 ADP3 June assessment Group 1
  */
 
+import java.util.Objects;
+
 public class Student
 {
     private String studentId;
     private String email;
     private Name name;
 
-    protected Student()
-    {}
 
     //pattern
     private Student(Builder builder)
@@ -51,6 +51,22 @@ public class Student
                 '}';
     }
 
+    @Override
+    public boolean equals(Object s)
+    {
+        if (this == s)
+            return true;
+        if (s == null || getClass() != s.getClass())
+            return false;
+        Student stud = (Student) s;
+        return studentId.equals(stud.studentId) && email.equals(stud.email) && name.equals(stud.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId, email, name);
+    }
+
     // builder class
     public static class Builder
     {
@@ -72,14 +88,11 @@ public class Student
         return this;
     }
 
-
     public Builder setName(Name name)
     {
         this.name = name;
         return this;
     }
-
-
 
     public Builder copy(Student student)
     {

@@ -7,6 +7,7 @@ factory: Student factory
 ADP3 June assessment Group 1
  */
 
+import za.ac.cput.school_management.domain.Name;
 import za.ac.cput.school_management.domain.Student;
 
 public class StudentFactory
