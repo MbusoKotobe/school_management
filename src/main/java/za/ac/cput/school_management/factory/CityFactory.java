@@ -7,10 +7,19 @@
 package za.ac.cput.school_management.factory;
 
 import domain.City;
+import za.ac.cput.school_management.domain.Country;
+import za.ac.cput.school_management.helper.Helper;
 
 public class CityFactory {
+
+
     public static City createCity(String  id, String name, Country country){
-        City cit = new City.Builder().setId(id)
+
+        Helper.checkStringParam("id",id);
+        Helper.checkStringParam("name",name);
+        Helper.checkStringParam("Country",country);
+
+        return new City.Builder().setId(id)
                 .setName(name)
                 .setCountry(country)
                 .build();
