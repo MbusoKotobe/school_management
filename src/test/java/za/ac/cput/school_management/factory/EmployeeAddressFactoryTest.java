@@ -21,7 +21,7 @@ class EmployeeAddressFactoryTest {
     void tearDown()
     { }
 
-    /*@Test
+    @Test
     public void createEmployeeAddressTest()
     {
         Country country = CountryFactory.createCountry("1CNTY1", "South Africa");
@@ -36,5 +36,5 @@ class EmployeeAddressFactoryTest {
         assertThat(resultsTwo.getMessage(), containsString("Invalid value for:"));
         assertThat(resultsThree.getMessage(), containsString("Invalid value for:"));
         assertDoesNotThrow(() -> EmployeeAddressFactory.createEmployeeAddress("1EMP1", address));
-    }*/
+    }
 }
