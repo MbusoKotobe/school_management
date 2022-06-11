@@ -47,8 +47,39 @@ public class StudentAddress {
         }
 
     }
+    public static class StudentAddressId{
+        private String studentId;
+        private Address address;
+
+        public StudentAddressId(String studentId, Address address) {
+            this.studentId = studentId;
+            this.address = address;
+        }
+
+        public String getStudentId() {
+            return studentId;
+        }
+
+        public Address getAddress() {
+            return address;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            StudentAddressId that = (StudentAddressId) o;
+            return studentId.equals(that.studentId) && address.equals(that.address);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(studentId, address);
+        }
+    }
 
     @Override
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
