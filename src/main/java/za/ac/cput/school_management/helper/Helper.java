@@ -1,6 +1,7 @@
 package za.ac.cput.school_management.helper;
 
 import org.apache.commons.lang3.StringUtils;
+import za.ac.cput.school_management.domain.*;
 import org.apache.commons.validator.routines.EmailValidator;
 
 public class Helper {
