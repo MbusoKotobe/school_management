@@ -9,8 +9,8 @@ package za.ac.cput.school_management.domain;
 import java.util.Objects;
 
 public class Country {
-    private final String countryId;
-    private final String countryName;
+    private  String countryId;
+    private  String countryName;
 
 
     private Country(Builder builder) {
@@ -29,8 +29,8 @@ public class Country {
 
     public static class Builder {
 
-        String countryId;
-        String countryName;
+       private String countryId;
+       private String countryName;
 
         public Country.Builder setCountryId(String countryId) {
             this.countryId = countryId;
@@ -60,7 +60,6 @@ public class Country {
                 ", countryName='" + countryName + '\'' + '}';
 
     }
-
 
     @Override
     public boolean equals(Object o) {
