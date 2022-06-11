@@ -40,6 +40,8 @@ public class Student
         return name;
     }
 
+
+
     @Override
     public String toString() {
         return "Student{" +
@@ -70,11 +72,14 @@ public class Student
         return this;
     }
 
+
     public Builder setName(Name name)
     {
         this.name = name;
         return this;
     }
+
+
 
     public Builder copy(Student student)
     {
