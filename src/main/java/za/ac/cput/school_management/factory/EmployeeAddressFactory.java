@@ -16,6 +16,6 @@ public class EmployeeAddressFactory {
     private static void validateAttributes(String employeeId, Address address) throws IllegalArgumentException
     {
         Helper.checkStringParam("EmployeeId", employeeId);
-        Helper.checkObjectSafety(address);
+        Helper.checkIfObjectNull("address", address);
     }
 }
