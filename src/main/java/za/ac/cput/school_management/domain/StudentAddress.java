@@ -17,7 +17,6 @@ public class StudentAddress {
         this.studentId = builder.studentId;
         this.address = builder.address;
     }
-
     public String getStudentId() {
         return studentId;
     }
@@ -45,22 +44,11 @@ public class StudentAddress {
         public StudentAddress build(){
             return new StudentAddress(this);
         }
-
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        StudentAddress that = (StudentAddress) o;
-        return studentId.equals(that.studentId) && address.equals(that.address);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(studentId, address);
-    }
-
+        @Override
+        public int hashCode() {
+            return Objects.hash(studentId, address);
+        }
     @Override
     public String toString() {
         return "StudentAddress{" +
