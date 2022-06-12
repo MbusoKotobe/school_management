@@ -25,19 +25,19 @@ The Resful API project is made up of 5 packages by default which abide to the DD
 - repository
 - service
 
-Within the controller, domain & factory packages, do not add any sub-packages, all source files should be listed inside the package. They should not be within any sub-package.
+Within the controller, domain, factory & repository packages, do not add any sub-packages, all source files should be listed inside the package. They should not be within any sub-package.
 
-For the remaining packages which are repository and service, each domain should have a specific package created within the respective package. Within the sub-package of the specific domain, Interfaces of that domain should be defined there. Implementations of the specific Interfaces should be created within a sub-package named 
+For the remaining package(s) which are service, each domain should have a specific package created within the respective package. Within the sub-package of the specific domain, Interfaces of that domain should be defined there. Implementations of the specific Interfaces should be created within a sub-package named 
 > impl
 
-#### See example below of the package structure for studentRepository
+#### See example below of the package structure for studentService
 ```
-|-- repository
-|  |-- IRepository.java
-|  |-- studentRepository
-|     |-- IStudentRepository.java
+|-- service
+|  |-- IService.java
+|  |-- studentService
+|     |-- IStudentService.java
 |     |-- impl
-|        |-- StudentRepositoryImpl.java
+|        |-- StudentServiceImpl.java
 |
 |
 |
