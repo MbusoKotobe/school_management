@@ -2,8 +2,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
-    show-sql:true
+      show-sql: true
   datasource:
-    url:jdbc:mysql://localhost:3306/school_managment?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/school_management?createDatabaseIfNotExist=true
     username: root
     password:
