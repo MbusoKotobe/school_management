@@ -23,6 +23,6 @@ public class CityFactory {
                 .setName(name)
                 .setCountry(country)
                 .build();
-        return cit;
+
     }
 }

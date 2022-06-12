@@ -17,7 +17,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class CityFactoryTest {
     @Test
     void createCity(){
-        City cityCreated = CityFactory.createCity("012345","Cape Town", Country SouthAfrican=CountryFactory.createCountry("1CNTY1","South Africa");
+        City cityCreated = CityFactory.createCity("012345","Cape Town", Country South African);
+
         assertNotNull(cityCreated);
         System.out.println(cityCreated);
     }
