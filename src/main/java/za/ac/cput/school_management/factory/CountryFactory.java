@@ -16,9 +16,5 @@ public class CountryFactory {
         Helper.checkStringParam("countryName", countryName);
         return new Country.Builder().setCountryId(countryId).setCountryName (countryName).build();
     }
-    public static Country.CountryId build(Country country){
-        return new Country.CountryId(country.getCountryId (),country.getCountryName());
-    }
-
 
 }

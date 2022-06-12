@@ -75,34 +75,4 @@ public class Country {
         return Objects.hash(countryId, countryName);
     }
 
-    public static class CountryId {
-        private String countryId,countryName;
-
-        public CountryId(String countryId, String countryName) {
-            this.countryId = countryId;
-            this.countryName = countryName;
-        }
-
-        public String getCountryId() {
-            return countryId;
-        }
-        public String getCountryName() {
-            return countryName;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Country that = (Country) o;
-            return countryId.equals(that.countryId) &&
-                    countryName.equals(that.countryName);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(countryId, countryName);
-        }
-    }
-
 }
