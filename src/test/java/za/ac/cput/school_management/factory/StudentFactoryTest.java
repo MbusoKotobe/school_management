@@ -17,10 +17,10 @@ class StudentFactoryTest
     void createStudent()
     {
 
-        Name name = NameFactory.createName("Will", "Thomas", "Smith");
+        Name name = NameFactory.build("Will", "Thomas", "Smith");
         Student student = StudentFactory.createStudent("Smith765", "smithw@gmail.com", name);
 
-        Name name2 = NameFactory.createName("Jack", "Peter", "phillips");
+        Name name2 = NameFactory.build("Jack", "Peter", "phillips");
         Student student2 = StudentFactory.createStudent("Phillips132","phillipsj@gmail.com", name2);
 
         assertNotNull(student);
