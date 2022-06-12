@@ -14,11 +14,10 @@ public class StudentFactory
 {
     public static Student createStudent(String studentId, String email, Name name)
     {
-        Student student = new Student.Builder()
+        return new Student.Builder()
                 .setStudentId(studentId)
                 .setEmail(email)
                 .setName(name)
                 .build();
-        return student;
     }
 }
