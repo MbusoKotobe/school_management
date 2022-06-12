@@ -9,8 +9,4 @@ public class StudentAddressFactory {
         Helper.checkStringParam("address", (address));
         return new StudentAddress.Builder().setStudentId(studentId).build();
     }
-    public static StudentAddress.StudentAddressId buildId(StudentAddress studentAddress){
-        return new StudentAddress.StudentAddressId(studentAddress.getStudentId(),
-                studentAddress.getAddress());
-    }
 }
