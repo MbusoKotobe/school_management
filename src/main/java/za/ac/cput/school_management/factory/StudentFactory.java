@@ -13,7 +13,7 @@ import za.ac.cput.school_management.helper.Helper;
 
 public class StudentFactory
 {
-    public static Student createStudent(String studentId, String email, Name name)
+    public static Student build(String studentId, String email, Name name)
     {
         Helper.checkIfObjectNull("Name", name);
         Helper.checkEmail(email);

@@ -30,17 +30,17 @@ class EmployeeAddressFactoryTest {
     @Test
     public void createEmployeeAddressTest()
     {
-        Country country = CountryFactory.createCountry("1CNTY1", "South Africa");
-        City city = CityFactory.createCity("1CTY1", "Cape Town", country);
-        Address address = AddressFactory.createAddress("18", "Bluebell Village", "412", "Chumani Rd", "1818", city);
+        Country country = CountryFactory.build("1CNTY1", "South Africa").build();
+        City city = CityFactory.build("1CTY1", "Cape Town", country);
+        Address address = AddressFactory.build("18", "Bluebell Village", "412", "Chumani Rd", "1818", city);
 
-        var results = assertThrows(AssertionError.class, () -> EmployeeAddressFactory.createEmployeeAddress(null, address));
-        var resultsTwo = assertThrows(AssertionError.class, () -> EmployeeAddressFactory.createEmployeeAddress("", address));
-        var resultsThree = assertThrows(AssertionError.class, () -> EmployeeAddressFactory.createEmployeeAddress("1EMP1", null));
+        var results = assertThrows(AssertionError.class, () -> EmployeeAddressFactory.build(null, address));
+        var resultsTwo = assertThrows(AssertionError.class, () -> EmployeeAddressFactory.build("", address));
+        var resultsThree = assertThrows(AssertionError.class, () -> EmployeeAddressFactory.build("1EMP1", null));
 
         assertThat(results.getMessage(), containsString("Invalid value for:"));
         assertThat(resultsTwo.getMessage(), containsString("Invalid value for:"));
         assertThat(resultsThree.getMessage(), containsString("Invalid value for:"));
-        assertDoesNotThrow(() -> EmployeeAddressFactory.createEmployeeAddress("1EMP1", address));
+        assertDoesNotThrow(() -> EmployeeAddressFactory.build("1EMP1", address));
     }
 }

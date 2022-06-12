@@ -10,7 +10,7 @@ import za.ac.cput.school_management.helper.Helper;
  * Date: 10 June 2022
  * */
 public class EmployeeAddressFactory {
-    public static EmployeeAddress createEmployeeAddress(String employeeId, Address address) throws IllegalArgumentException
+    public static EmployeeAddress build(String employeeId, Address address) throws IllegalArgumentException
     {
         validateAttributes(employeeId, address);
         return new EmployeeAddress.Builder()

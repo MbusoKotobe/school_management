@@ -13,7 +13,7 @@ import java.lang.reflect.Field;
  * Date: 10 June 2022
  * */
 public class AddressFactory {
-    public static Address createAddress(String unitNumber, String complexName, String streetNumber, String streetName, String postalCode, City city) throws IllegalArgumentException
+    public static Address build(String unitNumber, String complexName, String streetNumber, String streetName, String postalCode, City city) throws IllegalArgumentException
     {
         validateAttributes(unitNumber, complexName, streetNumber, streetName, postalCode, city);
         return new Address.Builder().setUnitNumber(unitNumber)
