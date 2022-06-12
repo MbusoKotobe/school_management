@@ -6,6 +6,12 @@ import za.ac.cput.school_management.helper.Helper;
 
 import java.lang.reflect.Field;
 
+
+/**
+ * @author Mbuso Kotobe (218040385)
+ * Entity for Address
+ * Date: 10 June 2022
+ * */
 public class AddressFactory {
     public static Address createAddress(String unitNumber, String complexName, String streetNumber, String streetName, String postalCode, City city) throws IllegalArgumentException
     {

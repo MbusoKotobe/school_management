@@ -12,6 +12,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.jupiter.api.Assertions.*;
 
+
+/**
+ * @author Mbuso Kotobe (218040385)
+ * Entity for Address
+ * Date: 10 June 2022
+ * */
 class AddressFactoryTest {
 
     @BeforeEach
