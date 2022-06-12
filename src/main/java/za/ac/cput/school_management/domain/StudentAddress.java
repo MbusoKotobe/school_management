@@ -17,7 +17,6 @@ public class StudentAddress {
         this.studentId = builder.studentId;
         this.address = builder.address;
     }
-
     public String getStudentId() {
         return studentId;
     }
@@ -45,9 +44,7 @@ public class StudentAddress {
         public StudentAddress build(){
             return new StudentAddress(this);
         }
-
     }
-
         @Override
         public int hashCode() {
             return Objects.hash(studentId, address);
