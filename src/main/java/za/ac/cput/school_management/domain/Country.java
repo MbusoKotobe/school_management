@@ -25,6 +25,7 @@ public class Country {
     public String getCountryName() {
         return countryName;
     }
+
     @Override
     public String toString() {
         return "country{" +
@@ -38,12 +39,12 @@ public class Country {
        private String countryId;
        private String countryName;
 
-        public Country.Builder setCountryId(String countryId) {
+        public Builder setCountryId(String countryId) {
             this.countryId = countryId;
             return this;
         }
 
-        public Country.Builder setCountryName(String countryName) {
+        public Builder setCountryName(String countryName) {
             this.countryName = countryName;
             return this;
         }

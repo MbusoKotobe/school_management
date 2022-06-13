@@ -24,6 +24,7 @@ public class StudentAddress {
     public Address getAddress() {
         return address;
     }
+
     public static class Builder{
         private String studentId;
         private Address address;
@@ -32,15 +33,18 @@ public class StudentAddress {
             this.studentId = studentId;
             return this;
         }
+
         public Builder setAddress(Address address){
             this.address = address;
             return this;
         }
+
         public Builder copy(StudentAddress studentAddress){
             this.studentId = studentAddress.studentId;
             this.address = studentAddress.address;
             return this;
         }
+
         public StudentAddress build(){
             return new StudentAddress(this);
         }
@@ -49,6 +53,7 @@ public class StudentAddress {
         public int hashCode() {
             return Objects.hash(studentId, address);
         }
+
     @Override
     public String toString() {
         return "StudentAddress{" +

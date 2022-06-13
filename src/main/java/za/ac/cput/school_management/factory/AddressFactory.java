@@ -1,5 +1,6 @@
 package za.ac.cput.school_management.factory;
 
+import lombok.extern.slf4j.Slf4j;
 import za.ac.cput.school_management.domain.Address;
 import za.ac.cput.school_management.domain.City;
 import za.ac.cput.school_management.helper.Helper;
@@ -12,6 +13,7 @@ import java.lang.reflect.Field;
  * Entity for Address
  * Date: 10 June 2022
  * */
+@Slf4j
 public class AddressFactory {
     public static Address build(String unitNumber, String complexName, String streetNumber, String streetName, String postalCode, City city) throws IllegalArgumentException
     {
@@ -68,8 +70,7 @@ public class AddressFactory {
         }
         catch(Exception e)
         {
-            //TODO: Must log error properly.
-            System.out.println(e.getMessage());
+            log.info("getFieldName procedure: {}", e);
         }
         return "";
     }

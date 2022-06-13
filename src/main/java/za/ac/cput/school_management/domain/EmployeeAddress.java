@@ -1,13 +1,28 @@
 package za.ac.cput.school_management.domain;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 /**
  * @author Mbuso Kotobe (218040385)
  * Entity for Address
  * Date: 10 June 2022
  * */
+
+@Entity
 public class EmployeeAddress {
+
+    @Id
+    @NotNull
     private String staffId;
+
+    @NotNull
+    @Embedded
     private Address address;
+
+    protected EmployeeAddress(){ }
 
     private EmployeeAddress(Builder builder)
     {
