@@ -5,12 +5,24 @@ Date: 10 June 2022 */
 
 package za.ac.cput.school_management.domain;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Employee {
-    private String staffId;
-    private String email;
+@Entity
+public class Employee implements Serializable {
+    @NotNull @Id private String staffId;
+    @NotNull private String email;
+    @NotNull
+    @Embedded
     private Name name;
+
+    protected Employee(){
+
+    }
 
     private Employee(Builder builder){
         this.staffId = builder.staffId;

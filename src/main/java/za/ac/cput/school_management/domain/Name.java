@@ -16,6 +16,10 @@ public class Name {
         this.lastName = builder.lastName;
     }
 
+    protected Name(){
+
+    }
+
     public String getFirstName() {return firstName;}
 
     public String getMiddleName() {return middleName;}
