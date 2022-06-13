@@ -50,11 +50,10 @@ public class City {
             return this;
         }
 
-        public Country setCountry(Country country)
+        public Builder setCountry(Country country)
         {
             this.country = country;
-
-            return country;
+            return this;
         }
 
         @Override
