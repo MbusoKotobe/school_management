@@ -1,13 +1,12 @@
 package za.ac.cput.school_management.service.employeeAddressService;
 
-import java.util.List;
-import java.util.Optional;
+import za.ac.cput.school_management.domain.EmployeeAddress;
+import za.ac.cput.school_management.service.IService;
 
-public interface IEmployeeAddressService<T, I>{
-    T save(T object);
-    Optional<T> read(I employeeId);
-    List<T> findAll();
-    void deleteById(I employeeId);
-    void delete(T employeeAddress);
+import java.util.List;
+
+public interface IEmployeeAddressService extends IService<EmployeeAddress, String> {
+    List<EmployeeAddress> findAll();
+    void deleteById(String employeeId);
 
 }
