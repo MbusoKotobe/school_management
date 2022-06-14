@@ -19,7 +19,6 @@ class NameFactoryTest {
                 ()-> assertTrue(name.getMiddleName().isEmpty()),
                 ()-> assertNotNull(name)
         );
-        assertTrue(name.getMiddleName().isEmpty());
         System.out.println(name);
     }
 

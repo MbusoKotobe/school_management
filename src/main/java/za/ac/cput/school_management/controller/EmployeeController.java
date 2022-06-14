@@ -1,7 +1,7 @@
 /* EmployeeController.java
 Controller for the Employee
 Author: Jody Kearns (209023651)
-Date: 12 June 2022 */
+Date: 13 June 2022 */
 
 package za.ac.cput.school_management.controller;
 
@@ -12,12 +12,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.school_management.domain.Employee;
+import za.ac.cput.school_management.domain.Name;
+import za.ac.cput.school_management.factory.EmployeeFactory;
+import za.ac.cput.school_management.factory.NameFactory;
 import za.ac.cput.school_management.service.employeeService.IEmployeeService;
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("schoolmanagement/employee/")
+@RequestMapping("school-management/employee/")
 @Slf4j
 public class EmployeeController {
 
@@ -29,9 +31,20 @@ public class EmployeeController {
     }
 
     @PostMapping("save")
-    public ResponseEntity<Employee> save(@Valid @RequestBody Employee employee){
+    public ResponseEntity<Employee> save(@RequestBody Employee employee){
         log.info("Save request: {}", employee);
-        Employee save = employeeService.save(employee);
+        Name validatedName;
+        Employee validatedEmployee;
+        try {
+            validatedName = NameFactory.build(employee.getName().getFirstName(),
+                    employee.getName().getMiddleName(),employee.getName().getLastName());
+            validatedEmployee = EmployeeFactory.build(employee.getStaffId(),
+                    employee.getEmail(), validatedName);
+        }catch(IllegalArgumentException e){
+            log.info("Save request error: {}", e.getMessage());
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        Employee save = employeeService.save(validatedEmployee);
         return ResponseEntity.ok(save);
     }
 

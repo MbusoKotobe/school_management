@@ -5,10 +5,17 @@ Date: 10 June 2022 */
 
 package za.ac.cput.school_management.domain;
 
+import javax.persistence.Embeddable;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Name {
-    private String firstName, middleName, lastName;
+/* @NotNull/@NotBlank - Did not use as checks for nulls/blanks is done in the helper and Factory class.*/
+@Embeddable
+public class Name implements Serializable {
+
+    private String firstName;
+    private String middleName;
+    private String lastName;
 
     private Name(Builder builder){
         this.firstName = builder.firstName;
@@ -17,7 +24,6 @@ public class Name {
     }
 
     protected Name(){
-
     }
 
     public String getFirstName() {return firstName;}
@@ -25,6 +31,16 @@ public class Name {
     public String getMiddleName() {return middleName;}
 
     public String getLastName() {return lastName;}
+
+    private void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    private void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+    private void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     @Override
     public boolean equals(Object o) {
