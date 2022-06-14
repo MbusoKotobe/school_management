@@ -1,3 +1,8 @@
+/* EmployeeControllerTest.java
+Test for the EmployeeController
+Author: Jody Kearns (209023651)
+Date: 13 June 2022 */
+
 package za.ac.cput.school_management.controller;
 
 import org.junit.jupiter.api.*;
@@ -11,9 +16,7 @@ import za.ac.cput.school_management.domain.Employee;
 import za.ac.cput.school_management.domain.Name;
 import za.ac.cput.school_management.factory.EmployeeFactory;
 import za.ac.cput.school_management.factory.NameFactory;
-
 import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

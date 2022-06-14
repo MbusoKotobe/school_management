@@ -1,5 +1,5 @@
-/* IEmployeeRepositoryTest.java
-Test for the IEmployeeRepository
+/* EmployeeServiceImplTest.java
+Test for the EmployeeServiceImpl
 Author: Jody Kearns (209023651)
 Date: 13 June 2022 */
 
@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class EmployeeServiceImplTest {
 
-    private final Name name = NameFactory.build("Jody", "","Kearns");
+    private final Name name = NameFactory.build("Jody", "Middle","Kearns");
     private final Employee employee = EmployeeFactory.build("209023651","209023651@mycput.ac.za", name);
 
     @Autowired private IEmployeeService employeeService;

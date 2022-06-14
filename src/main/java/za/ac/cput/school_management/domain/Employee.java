@@ -8,15 +8,19 @@ package za.ac.cput.school_management.domain;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
+/* @Email - Did not use javax validator as commons validator is more thorough when checking for email validation.
+* @NotNull/@NotBlank - Did not use as checks for nulls/blanks is done in the helper and Factory class.*/
 @Entity
 public class Employee implements Serializable {
-    @NotNull @Id private String staffId;
-    @NotNull private String email;
-    @NotNull
+
+    @Id
+    private String staffId;
+
+    private String email;
+
     @Embedded
     private Name name;
 
