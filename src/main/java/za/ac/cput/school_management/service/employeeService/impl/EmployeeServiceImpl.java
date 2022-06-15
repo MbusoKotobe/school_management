@@ -28,7 +28,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
     }
 
     @Override
-    public Optional<Employee> read(String id) {
+    public Optional<Employee> read(String id)
+    {
         return this.repository.findById(id);
     }
 
