@@ -10,7 +10,6 @@ import javax.validation.constraints.NotNull;
  * Entity for Address
  * Date: 10 June 2022
  * */
-
 @Entity
 public class EmployeeAddress {
 

@@ -1,21 +1,43 @@
 package za.ac.cput.school_management.domain;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.Embeddable;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
+
+import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.CascadeType.PERSIST;
 
 /**
  * @author Mbuso Kotobe (218040385)
  * Entity for Address
  * Date: 10 June 2022
  * */
-
-//@Embeddable
+@Embeddable
 public class Address {
+
+    @NotBlank(message = "Unit Number is mandatory")
     private String unitNumber;
+
+    @NotBlank(message = "Complex is mandatory") //Not everyone stays in a complex.
     private String complexName;
+
+    @NotBlank(message = "Street Number is mandatory")
     private String streetNumber;
+
+    @NotBlank(message = "Complex Name is mandatory")
     private String streetName;
+
+    @NotBlank(message = "Postal Code is mandatory")
     private String postalCode;
+
+    @NotNull(message = "City is mandatory")
+    @ManyToOne(cascade = { PERSIST, MERGE })
+    @NotFound(action = NotFoundAction.IGNORE)
     private City city;
 
     protected Address(){ }
@@ -151,7 +173,7 @@ public class Address {
             return this;
         }
 
-        public Builder setpostalCode(String postalCode)
+        public Builder setPostalCode(String postalCode)
         {
             this.postalCode = postalCode;
             return this;

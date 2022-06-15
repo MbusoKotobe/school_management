@@ -37,7 +37,7 @@ class EmployeeControllerTest {
         assertNotNull(controller);
         this.name = NameFactory.build("Jody", "","Kearns");
         this.employee = EmployeeFactory.build("209023651","209023651@mycput.ac.za", name);
-        this.baseUrl = "http://localhost:" + this.port + "/schoolmanagement/employee/";
+        this.baseUrl = "http://localhost:" + this.port + "/school-management/employee/";
     }
 
     @Order(1)
