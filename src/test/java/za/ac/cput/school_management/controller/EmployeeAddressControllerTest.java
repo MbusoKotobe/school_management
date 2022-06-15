@@ -91,7 +91,8 @@ class EmployeeAddressControllerTest {
     }
 
     @Test
-    @Order(4)
+    @Order(5)
+    @Disabled
     void deleteById()
     {
         String url = baseUrl + "delete-by-id/" + employeeAddress.getStaffId();
