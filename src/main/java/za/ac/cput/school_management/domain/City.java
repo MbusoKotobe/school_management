@@ -8,7 +8,6 @@ package za.ac.cput.school_management.domain;
 
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
-
 import javax.persistence.*;
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.PERSIST;
@@ -84,7 +83,6 @@ public class City {
 
     }
 }
-
 
 
 

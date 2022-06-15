@@ -1,5 +1,6 @@
 package za.ac.cput.school_management.domain;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;

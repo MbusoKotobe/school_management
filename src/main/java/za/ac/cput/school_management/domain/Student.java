@@ -8,14 +8,25 @@ domain: Student entity
 ADP3 June assessment Group 1
  */
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+
+@Entity
 public class Student
 {
-    private String studentId;
-    private String email;
-    private Name name;
+    @NotNull
+    @Id private String studentId;
 
+    @NotNull private String email;
+
+    @NotNull
+    @Embedded private Name name;
+
+    protected Student(){
+
+    }
 
     //pattern
     private Student(Builder builder)
