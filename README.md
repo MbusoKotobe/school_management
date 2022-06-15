@@ -51,7 +51,7 @@ All commits made in this project should follow the convention below.
 A commit should have 3 parts
 1. Type
 2. Colon
-3. Description of the task under the give task. ***Short and precised***
+3. Description of the task under the give task. ***Short and precise***
 
 #### See examples below
 ---
