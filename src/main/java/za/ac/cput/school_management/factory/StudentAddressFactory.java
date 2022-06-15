@@ -1,4 +1,10 @@
 package za.ac.cput.school_management.factory;
+/**
+ * StudentAddressRepository.java;
+ * This is a student address domain class
+ * @Author: Anele Aneal Tose - (216079292)
+ * Date: 12 June 2022
+ */
 
 import za.ac.cput.school_management.domain.Address;
 import za.ac.cput.school_management.domain.StudentAddress;
