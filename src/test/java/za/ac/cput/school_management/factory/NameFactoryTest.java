@@ -1,7 +1,10 @@
+/* NameFactoryTest.java
+Test for the NameFactory
+Author: Jody Kearns (209023651)
+Date: 11 June 2022 */
+
 package za.ac.cput.school_management.factory;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.school_management.domain.Name;
 
@@ -16,7 +19,6 @@ class NameFactoryTest {
                 ()-> assertTrue(name.getMiddleName().isEmpty()),
                 ()-> assertNotNull(name)
         );
-        assertTrue(name.getMiddleName().isEmpty());
         System.out.println(name);
     }
 

@@ -1,5 +1,6 @@
 package za.ac.cput.school_management.domain;
 
+import javax.persistence.Embeddable;
 import java.util.Objects;
 
 /**
@@ -7,6 +8,8 @@ import java.util.Objects;
  * Entity for Address
  * Date: 10 June 2022
  * */
+
+//@Embeddable
 public class Address {
     private String unitNumber;
     private String complexName;
@@ -14,6 +17,8 @@ public class Address {
     private String streetName;
     private String postalCode;
     private City city;
+
+    protected Address(){ }
 
     private Address(Builder builder)
     {
@@ -53,6 +58,36 @@ public class Address {
     public City getCity()
     {
         return city;
+    }
+
+    protected void setUnitNumber(String unitNumber)
+    {
+        this.unitNumber = unitNumber;
+    }
+
+    protected void setComplexName(String complexName)
+    {
+        this.complexName = complexName;
+    }
+
+    protected void setStreetNumber(String streetNumber)
+    {
+        this.streetNumber = streetNumber;
+    }
+
+    protected void setStreetName(String streetName)
+    {
+        this.streetName = streetName;
+    }
+
+    protected void setPostalCode(String postalCode)
+    {
+        this.postalCode = postalCode;
+    }
+
+    protected void setCity(City city)
+    {
+        this.city = city;
     }
 
     @Override
