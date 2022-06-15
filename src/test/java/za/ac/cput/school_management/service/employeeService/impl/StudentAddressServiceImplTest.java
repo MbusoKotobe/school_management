@@ -1,0 +1,28 @@
+package za.ac.cput.school_management.service.employeeService.impl;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class StudentAddressServiceImplTest {
+
+    @Test
+    void save() {
+    }
+
+    @Test
+    void read() {
+    }
+
+    @Test
+    void delete() {
+    }
+
+    @Test
+    void findAll() {
+    }
+
+    @Test
+    void deleteById() {
+    }
+}
