@@ -9,5 +9,4 @@ import java.util.Optional;
 @Repository
 public interface IStudentAddressRepository extends JpaRepository<StudentAddress, String> {
 
-    Optional<StudentAddress> read(String id);
 }
