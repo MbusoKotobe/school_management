@@ -6,7 +6,8 @@
  */
 package za.ac.cput.school_management.factory;
 
-import domain.City;
+//import domain.City;
+import za.ac.cput.school_management.domain.City;
 import za.ac.cput.school_management.domain.Country;
 import za.ac.cput.school_management.helper.Helper;
 
@@ -24,5 +25,8 @@ public class CityFactory {
                 .setCountry(country)
                 .build();
 
+    }
+
+    public static City.Builder buildId(City city) {
     }
 }
