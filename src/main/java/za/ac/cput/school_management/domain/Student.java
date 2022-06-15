@@ -8,8 +8,9 @@ domain: Student entity
 ADP3 June assessment Group 1
  */
 
+import javax.persistence.Entity;
 import java.util.Objects;
-
+@Entity
 public class Student
 {
     private String studentId;

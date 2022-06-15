@@ -1,5 +1,12 @@
 package za.ac.cput.school_management.controller;
 
+/**
+ * StudentAddressController.java;
+ * This is a StudentAddressController class
+ * @Author: Anele Aneal Tose - (216079292)
+ * Date: 14 June 2022
+ */
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -7,15 +7,21 @@ package za.ac.cput.school_management.domain;
  * Date: 10 June 2022
  */
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
-
+@Entity
 public class StudentAddress {
     @NotNull
+    @Id
     private String studentId;
     @NotNull
+    @Embedded
     private Address address;
 
+    protected StudentAddress(){}
     private StudentAddress(Builder builder){
         this.studentId = builder.studentId;
         this.address = builder.address;

@@ -1,9 +1,15 @@
 package za.ac.cput.school_management.service.employeeService.impl;
 
+/**
+ * StudentAddressServiceImpl.java;
+ * This is a StudentAddressServiceImpl class
+ * @Author: Anele Aneal Tose - (216079292)
+ * Date: 14 June 2022
+ */
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.school_management.domain.StudentAddress;
-import za.ac.cput.school_management.factory.StudentAddressFactory;
 import za.ac.cput.school_management.repository.IStudentAddressRepository;
 import za.ac.cput.school_management.service.employeeService.IStudentAddressService;
 
