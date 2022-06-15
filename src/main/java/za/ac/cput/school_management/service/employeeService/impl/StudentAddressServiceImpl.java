@@ -2,7 +2,6 @@ package za.ac.cput.school_management.service.employeeService.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.school_management.domain.Employee;
 import za.ac.cput.school_management.domain.StudentAddress;
 import za.ac.cput.school_management.factory.StudentAddressFactory;
 import za.ac.cput.school_management.repository.IStudentAddressRepository;
@@ -21,10 +20,9 @@ public class StudentAddressServiceImpl implements IStudentAddressService {
     }
 
     @Override
-    public StudentAddress save(StudentAddress studentAddresss){
-        StudentAddress student = StudentAddressFactory
-                .build(studentAddresss.getStudentId(), studentAddresss.getAddress());
-        return  this.repository.save(student);
+    public StudentAddress save(StudentAddress studentAddress){
+
+        return  this.repository.save(studentAddress);
     }
     @Override
     public Optional<StudentAddress> read(String id) {

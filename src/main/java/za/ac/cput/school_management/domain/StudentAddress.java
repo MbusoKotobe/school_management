@@ -7,10 +7,13 @@ package za.ac.cput.school_management.domain;
  * Date: 10 June 2022
  */
 
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class StudentAddress {
+    @NotNull
     private String studentId;
+    @NotNull
     private Address address;
 
     private StudentAddress(Builder builder){

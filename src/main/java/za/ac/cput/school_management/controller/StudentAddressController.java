@@ -6,14 +6,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.school_management.domain.Employee;
 import za.ac.cput.school_management.domain.StudentAddress;
-import za.ac.cput.school_management.service.employeeService.IEmployeeService;
 import za.ac.cput.school_management.service.employeeService.IStudentAddressService;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("schoolmanagement/studentAddresss/")
@@ -26,7 +23,7 @@ public class StudentAddressController {
         this.studentAddressService = studentAddressService;
     }
     @PostMapping("save")
-    public ResponseEntity<StudentAddress> save(@RequestBody StudentAddress studentAddress){
+    public ResponseEntity<StudentAddress> save(@Valid @RequestBody StudentAddress studentAddress){
         log.info("Save request: {}", studentAddress);
         StudentAddress save = studentAddressService.save(studentAddress);
         return ResponseEntity.ok(save);
