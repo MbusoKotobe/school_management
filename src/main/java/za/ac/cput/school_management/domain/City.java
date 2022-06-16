@@ -6,6 +6,7 @@
  */
 package za.ac.cput.school_management.domain;
 
+
 public class City {
     private String id;
     private String name;
@@ -69,7 +70,6 @@ public class City {
 
     }
 }
-
 
 
 
