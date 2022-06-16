@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.school_management.domain.City;
 import za.ac.cput.school_management.factory.CityFactory;
+import za.ac.cput.school_management.service.employeeService.impl.CityServiceImpl;
 
 
 import java.util.List;
@@ -25,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CityServiceImplTest {
 
 
-    private final City city = CityFactory.createCity(012345,"Nelspruit",CityFactory.createCity("AB","Kwazulu-Natal",));
+    private final City city = CityFactory.createCity(012345,"Nelspruit",CityFactory.createCity("AB","Kwazulu-Natal", ));
 
     @Autowired
     public CityServiceImpl iCityService;

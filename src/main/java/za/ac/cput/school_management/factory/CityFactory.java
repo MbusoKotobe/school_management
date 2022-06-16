@@ -12,12 +12,10 @@ import za.ac.cput.school_management.helper.Helper;
 
 public class CityFactory {
 
-    public static City createCity(String  id, String name, Country country){
-
+    public static City build(String  id, String name, Country country)throws IllegalArgumentException{
         Helper.checkStringParam("id",id);
         Helper.checkStringParam("name",name);
-        Helper.checkStringParam("Country",country);
-
+        Helper.checkIfObjectNull("Country",country);
         return new City.Builder().setId(id)
                 .setName(name)
                 .setCountry(country)

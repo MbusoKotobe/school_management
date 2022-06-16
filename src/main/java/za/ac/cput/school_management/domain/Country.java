@@ -34,8 +34,8 @@ public class Country {
 
     }
 
-    public Object equalsIgnoreCase(Object country) {
-    }
+    /**public Object equalsIgnoreCase(Object country) {
+    }**/
 
     public static class Builder {
 

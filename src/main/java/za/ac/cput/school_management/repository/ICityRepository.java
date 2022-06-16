@@ -11,8 +11,9 @@ import org.springframework.stereotype.Repository;
 import za.ac.cput.school_management.domain.City;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ICityRepository extends JpaRepository<City, String> {
-    List<City> findByEmployeeNumber(String city);
+
 }

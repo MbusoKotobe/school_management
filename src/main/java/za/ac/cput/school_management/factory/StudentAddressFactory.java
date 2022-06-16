@@ -14,7 +14,9 @@ public class StudentAddressFactory {
     public static StudentAddress build(String studentId, Address address) throws IllegalArgumentException{
         Helper.checkStringParam("studentId", studentId);
         Helper.checkIfObjectNull("address", address);
-        return new StudentAddress.Builder().setStudentId(studentId).setAddress(address)
+        return new StudentAddress.Builder()
+                .setStudentId(studentId)
+                .setAddress(address)
                 .build();
     }
 }

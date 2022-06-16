@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import za.ac.cput.school_management.domain.City;
 import za.ac.cput.school_management.domain.Country;
 import za.ac.cput.school_management.factory.CityFactory;
+import za.ac.cput.school_management.factory.CountryFactory;
 
 import java.util.Arrays;
 
@@ -27,9 +28,11 @@ class CityControllerTest {
     @LocalServerPort
     private int port;
 
-    @Autowired private CityController controller;
+    @Autowired
+    private CityController controller;
 
-    @Autowired private TestRestTemplate restTemplate;
+    @Autowired
+    private TestRestTemplate restTemplate;
 
     private City city;
 
@@ -39,10 +42,10 @@ class CityControllerTest {
     @BeforeEach
     void setUp(){
         assertNotNull(controller);
-    this.city = CityFactory
-            .createCity("012345", "Cape Town", Country "South African");
+        Country country = CountryFactory.build("01", "South Africa");
+        City city = CityFactory
+            .build("012345", "Cape Town",country);
         this.baseUrl = "http://localhost:" + this.port+"/schoolmanagement/city/";
-
 
     }
     @Order(1)

@@ -16,7 +16,10 @@ import za.ac.cput.school_management.domain.City;
 
 import za.ac.cput.school_management.factory.CityFactory;
 
-import za.ac.cput.school_management.service.CityServiceImpl;
+import za.ac.cput.school_management.service.employeeService.ICityService;
+import za.ac.cput.school_management.service.employeeService.impl.CityServiceImpl;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -24,43 +27,36 @@ import java.util.List;
 @Slf4j
 public class CityController {
 
-    private final CityServiceImpl cityServiceImpl;
+    private final ICityService cityService;
 
 
     @Autowired
-    public CityController(CityServiceImpl cityServiceImpl){
-        this.cityServiceImpl = cityServiceImpl;
+    public CityController(ICityService cityService){
+
+        this.cityService = cityService;
     }
     @PostMapping("save")
-    public ResponseEntity<City> save(@RequestBody City city){
+    public ResponseEntity<City> save(@Valid @RequestBody City city){
         log.info("save request: {}",city);
-        City valideCity;
-        try {
-            valideCity = CityFactory.createCity(city.getName(),city.getId(),city.getCountry());
-
-        }catch (IllegalArgumentException e){
-            log.info("Request for errors:{}",e.getMessage());
-            throw new ResponseStatusException((HttpStatus.BAD_REQUEST));
-        }
-        City save = cityServiceImpl.save((valideCity));
+        City save = cityService.save(city);
         return ResponseEntity.ok(save);
     }
     @GetMapping("read/{id}")
     public ResponseEntity<City> read (@PathVariable String id){
         log.info("Read request: {}",id);
-        City city = this.cityServiceImpl.read(id)
+        City city = this.cityService.read(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         return ResponseEntity.ok(city);
     }
     @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id){
         log.info("delete request{}",id);
-        this.cityServiceImpl.deleteById(id);
+        this.cityService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
     @GetMapping("all")
     public ResponseEntity<List<City>>findAll(){
-        List<City> cityList =this.cityServiceImpl.findAll();
+        List<City> cityList =this.cityService.findAll();
         return ResponseEntity.ok(cityList);
     }
 }
