@@ -4,12 +4,12 @@
  * @Author: Elvis Ndlangamandla (213063964)
  * Date: 15 June 2022
  */
-package za.ac.cput.school_management.service.employeeService.impl;
+package za.ac.cput.school_management.service.cityService.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.school_management.domain.City;
 import za.ac.cput.school_management.repository.ICityRepository;
-import za.ac.cput.school_management.service.employeeService.ICityService;
+import za.ac.cput.school_management.service.cityService.ICityService;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,7 +31,7 @@ public class CityServiceImpl implements ICityService {
 
         public Optional<City> read(String id){
 
-        return this.repository.read(id);
+        return this.repository.findById(id);
         }
 
         public void delete(City city){

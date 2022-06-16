@@ -1,4 +1,4 @@
-package za.ac.cput.school_management.service;
+package za.ac.cput.school_management.controller.service;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

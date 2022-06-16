@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.school_management.domain.City;
 
-import za.ac.cput.school_management.factory.CityFactory;
-
-import za.ac.cput.school_management.service.employeeService.ICityService;
-import za.ac.cput.school_management.service.employeeService.impl.CityServiceImpl;
+import za.ac.cput.school_management.service.cityService.ICityService;
 
 import javax.validation.Valid;
 import java.util.List;

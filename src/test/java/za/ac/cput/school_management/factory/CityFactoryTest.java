@@ -13,25 +13,27 @@ import za.ac.cput.school_management.domain.Country;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CityFactoryTest {
+
     @Test
     void createCity(){
-        City cityCreated = CityFactory.createCity("012345","Cape Town", CountryFactory.build( "South African","Namibia"));
+        City cityCreated = CityFactory.build("012345","Cape Town", CountryFactory.build( "South African","Namibia"));
 
         assertAll(
                 ()-> assertTrue(cityCreated.getName().isEmpty()),
                 ()-> assertTrue(cityCreated.getId().isEmpty()),
-                ()-> assertTrue(cityCreated.getCountry(),
-        ));
-        City city = CityFactory.createCity("012345","Cape Town", CountryFactory.build("1CNTY1","South Africa"));
+                ()-> assertNotNull(cityCreated.getCountry())
+        );
+        City city = CityFactory.build("012345","Cape Town", CountryFactory.build("1CNTY1","South Africa"));
         assertNotNull(cityCreated);
         System.out.println(cityCreated);
 
 
     }
-@Test
+
+    @Test
     public void completedValues(){
-        City city = CityFactory.createCity("012345","Mpumalanga",CountryFactory.build("South African","South America"));
-    System.out.println(createCity();
-        assertNotNull(createCity();
-}
+        City city = CityFactory.build("012345","Mpumalanga",CountryFactory.build("South African","South America"));
+        System.out.println(city);
+        assertNotNull(city);
+    }
 }

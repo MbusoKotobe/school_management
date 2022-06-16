@@ -4,7 +4,7 @@
  * @Author: Elvis Ndlangamandla (213063964)
  * Date: 15 June 2022
  */
-package za.ac.cput.school_management.service.employeeService;
+package za.ac.cput.school_management.service.cityService;
 
 import za.ac.cput.school_management.domain.City;
 import za.ac.cput.school_management.domain.StudentAddress;

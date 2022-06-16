@@ -4,7 +4,7 @@
  * @Author: Elvis Ndlangamandla (213063964)
  * Date: 15 June 2022
  */
-package za.ac.cput.school_management.service;
+package za.ac.cput.school_management.controller.service;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -13,8 +13,10 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.school_management.domain.City;
+import za.ac.cput.school_management.domain.Country;
 import za.ac.cput.school_management.factory.CityFactory;
-import za.ac.cput.school_management.service.employeeService.impl.CityServiceImpl;
+import za.ac.cput.school_management.factory.CountryFactory;
+import za.ac.cput.school_management.service.cityService.impl.CityServiceImpl;
 
 
 import java.util.List;
@@ -25,9 +27,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CityServiceImplTest {
 
-
-    private final City city = CityFactory.createCity(012345,"Nelspruit",CityFactory.createCity("AB","Kwazulu-Natal", ));
-
+    private final Country country = CountryFactory.build("RSA","SOUTH AFRICA");
+    private final City city = CityFactory.build("012345","Durban", country);
     @Autowired
     public CityServiceImpl iCityService;
 
@@ -39,6 +40,7 @@ class CityServiceImplTest {
         System.out.println(saved);
 
     }
+
     @Order(2)
     @Test
     void read(){
@@ -49,6 +51,7 @@ class CityServiceImplTest {
         );
         System.out.println(read);
     }
+
     @Order(4)
     @Test
     void delete(){
@@ -57,6 +60,7 @@ class CityServiceImplTest {
         assertEquals(0,cityList.size());
         System.out.println(iCityService);
     }
+
     @Order(3)
     @Test
     void findAll(){

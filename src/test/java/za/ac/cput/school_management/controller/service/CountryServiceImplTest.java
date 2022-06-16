@@ -1,4 +1,4 @@
-package za.ac.cput.school_management.service;
+package za.ac.cput.school_management.controller.service;
 /*
  * Zintle Magwaxaza (218109911)
  * CountryServiceImplTest
