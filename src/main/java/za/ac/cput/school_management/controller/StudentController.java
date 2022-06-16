@@ -19,7 +19,7 @@ ADP3 June assessment Group 1
  */
 
 @RestController
-@RequestMapping("school_management/student/")
+@RequestMapping("school-management/student/")
 @Slf4j
 public class StudentController
 {

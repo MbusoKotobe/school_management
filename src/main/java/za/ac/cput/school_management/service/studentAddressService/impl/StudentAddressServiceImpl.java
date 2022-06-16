@@ -1,4 +1,4 @@
-package za.ac.cput.school_management.service.employeeService.impl;
+package za.ac.cput.school_management.service.studentAddressService.impl;
 
 /**
  * StudentAddressServiceImpl.java;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.school_management.domain.StudentAddress;
 import za.ac.cput.school_management.repository.IStudentAddressRepository;
-import za.ac.cput.school_management.service.employeeService.IStudentAddressService;
+import za.ac.cput.school_management.service.studentAddressService.IStudentAddressService;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,7 +32,7 @@ public class StudentAddressServiceImpl implements IStudentAddressService {
     }
     @Override
     public Optional<StudentAddress> read(String id) {
-        return this.repository.read(id);
+        return this.repository.findById(id);
     }
 
     @Override
