@@ -24,10 +24,7 @@ public class EmployeeAddressServiceImpl implements IEmployeeAddressService{
     @Override
     public EmployeeAddress save(EmployeeAddress employeeAddress) throws IllegalArgumentException
     {
-        return repository.save(EmployeeAddressFactory.build(
-                employeeAddress.getStaffId(),
-                employeeAddress.getAddress()
-        ));
+        return repository.save(employeeAddress);
     }
 
     @Override

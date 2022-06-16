@@ -70,11 +70,4 @@ public class EmployeeAddressController {
         service.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
-    @GetMapping("find-by-city")
-    public ResponseEntity<List<EmployeeAddress>> findByCity(@PathVariable String cityId)
-    {
-        List<EmployeeAddress> employeeNames = service.findByCity(cityId);
-        return ResponseEntity.ok(employeeNames);
-    }
 }

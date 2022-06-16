@@ -8,6 +8,7 @@ package za.ac.cput.school_management.service.employeeService.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.school_management.domain.Employee;
+import za.ac.cput.school_management.domain.Name;
 import za.ac.cput.school_management.repository.IEmployeeRepository;
 import za.ac.cput.school_management.service.employeeService.IEmployeeService;
 import java.util.List;
