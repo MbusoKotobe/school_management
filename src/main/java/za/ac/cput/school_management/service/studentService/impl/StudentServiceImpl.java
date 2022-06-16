@@ -7,6 +7,13 @@ import za.ac.cput.school_management.repository.IStudentRepository;
 import za.ac.cput.school_management.service.studentService.IStudentService;
 import java.util.*;
 
+/*
+Author: Ameer Ismail
+student nr: 218216033
+Service: Student Service
+ADP3 June assessment Group 1
+ */
+
 @Service
 public class StudentServiceImpl implements IStudentService
 {
