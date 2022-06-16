@@ -22,7 +22,7 @@ public class AddressFactory {
                                     .setComplexName(complexName)
                                     .setStreetNumber(streetNumber)
                                     .setStreetName(streetName)
-                                    .setpostalCode(postalCode)
+                                    .setPostalCode(postalCode)
                                     .setCity(city).build();
     }
 

@@ -6,11 +6,24 @@
  */
 package za.ac.cput.school_management.domain;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+import javax.persistence.*;
+import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.CascadeType.PERSIST;
 
+@Entity
 public class City {
+    @Id
     private String id;
+
     private String name;
+
+    @ManyToOne(cascade = { PERSIST, MERGE })
+    @NotFound(action = NotFoundAction.IGNORE)
     private Country country;
+
+    public City(){}
 
     private City(Builder builder)
     {

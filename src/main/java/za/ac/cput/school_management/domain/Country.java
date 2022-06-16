@@ -6,12 +6,19 @@ package za.ac.cput.school_management.domain;
  * Date: 9 June 2022
  */
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
+@Entity
 public class Country {
+    @Id
     private  String countryId;
+
     private  String countryName;
 
+    protected Country()
+    {}
 
     private Country(Builder builder) {
         this.countryId = builder.countryId;
