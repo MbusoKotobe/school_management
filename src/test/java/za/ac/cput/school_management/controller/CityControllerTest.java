@@ -35,6 +35,7 @@ class CityControllerTest {
     private TestRestTemplate restTemplate;
 
     private City city;
+    private Country country;
 
 
     private  String baseUrl;
@@ -42,10 +43,10 @@ class CityControllerTest {
     @BeforeEach
     void setUp(){
         assertNotNull(controller);
-        Country country = CountryFactory.build("01", "South Africa");
-        City city = CityFactory
+        this.country = CountryFactory.build("01", "South Africa");
+        this.city = CityFactory
             .build("012345", "Cape Town",country);
-        this.baseUrl = "http://localhost:" + this.port+"/schoolmanagement/city/";
+        this.baseUrl = "http://localhost:" + this.port + "/school-management/city/";
 
     }
     @Order(1)

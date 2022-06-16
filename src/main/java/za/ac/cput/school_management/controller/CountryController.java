@@ -44,6 +44,7 @@ public CountryController(ICountryService countryService){
     @DeleteMapping("delete/{country}")
     public ResponseEntity<Void> delete(@PathVariable String country) {
         log.info("Delete request{}", country);
+        this.countryService.deleteById(country);
         return ResponseEntity.noContent().build();
     }
     @GetMapping("all")
