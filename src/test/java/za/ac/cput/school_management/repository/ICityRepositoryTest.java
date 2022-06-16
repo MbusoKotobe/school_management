@@ -23,8 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ICityRepositoryTest {
-   // @SpringBootTest
-   // @TestMethodOrder(MethodOrderer.OrderAnnotation)
+
     private final City city = CityFactory.createCity(012345,"Cape Town", Country"South Africa");
 
  @Autowired private ICityRepository repository;
@@ -39,10 +38,8 @@ class ICityRepositoryTest {
     @Test
     void read() {
      Optional<City> read = this.repository.findById(this.city.getId());
-     // Optional<City> readIt = this.repository.findById(this.city.getName());
      assertAll(
              () -> assertTrue(read.isPresent()),
-             // ()->assertTrue(readIt.isPresent())
              () -> assertEquals(this.city, read.get())
 
 

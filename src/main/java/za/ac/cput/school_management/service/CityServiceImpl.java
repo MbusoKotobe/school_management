@@ -5,6 +5,8 @@
  * Date: 15 June 2022
  */
 package za.ac.cput.school_management.service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.school_management.domain.City;
 import za.ac.cput.school_management.repository.ICityRepository;
 import za.ac.cput.school_management.service.employeeService.ICityService;
@@ -12,13 +14,13 @@ import za.ac.cput.school_management.service.employeeService.ICityService;
 import java.util.List;
 import java.util.Optional;
 
-
+@Service
 public class CityServiceImpl implements ICityService {
 
     private final ICityRepository repository;
-    private static ICityService SERVICE;
 
-    public CityServiceImpl(ICityRepository repository) {
+
+    @Autowired public CityServiceImpl (ICityRepository repository) {
         this.repository = repository;
     }
 
@@ -27,8 +29,8 @@ public class CityServiceImpl implements ICityService {
         return this.repository.save(city);
     }
        @Override
-        public Optional<City> read(String s){
-            return this.repository.findById(s);
+        public Optional<City> read(String id){
+            return this.repository.findById(id);
         }
         @Override
         public void delete(City city){
@@ -36,6 +38,13 @@ public class CityServiceImpl implements ICityService {
         }
         public List<City> findAll (){
             return this.repository.findAll();
+        }
+        public void deleteById (String id){
+        repository.findById(id);
+        Optional<City> city = read(id);
+        if (city.isPresent()){
+            delete(city.get());
+        }
         }
     }
 

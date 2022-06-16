@@ -13,11 +13,8 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.school_management.domain.City;
-import za.ac.cput.school_management.domain.Country;
-import za.ac.cput.school_management.domain.Name;
 import za.ac.cput.school_management.factory.CityFactory;
-//import za.ac.cput.school_management.factory.NameFactory;
-import za.ac.cput.school_management.service.employeeService.ICityService;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -27,26 +24,29 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CityServiceImplTest {
 
-    //private final Name name = NameFactory.build("Elvis","Ndlangamandla","Elvovo");
-    private final City city = CityFactory.createCity("012345","Nelspruit","South African");
 
-    @Autowired public ICityService iCityService;
+    private final City city = CityFactory.createCity(012345,"Nelspruit",CityFactory.createCity("AB","Kwazulu-Natal",));
+
+    @Autowired
+    public CityServiceImpl iCityService;
 
     @Order(1)
     @Test
     void save(){
         City saved = this.iCityService.save(this.city);
         assertEquals(this.city,saved);
+        System.out.println(saved);
 
     }
     @Order(2)
     @Test
     void read(){
-        Optional<City> read = this.iCityService.findAll();
+        Optional<City> read = this.iCityService.read(city.getId());
         assertAll(
                 ()->assertTrue(read.isPresent()),
                 ()->assertEquals(this.city,read.get())
         );
+        System.out.println(read);
     }
     @Order(4)
     @Test
@@ -54,12 +54,14 @@ class CityServiceImplTest {
         this.iCityService.delete(this.city);
         List<City> cityList = this.iCityService.findAll();
         assertEquals(0,cityList.size());
+        System.out.println(iCityService);
     }
     @Order(3)
     @Test
     void findAll(){
         List<City> cityList = this.iCityService.findAll();
         assertEquals(1, cityList.size());
+        System.out.println(cityList);
     }
 
 }

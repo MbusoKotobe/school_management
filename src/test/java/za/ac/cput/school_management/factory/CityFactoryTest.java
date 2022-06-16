@@ -15,14 +15,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class CityFactoryTest {
     @Test
     void createCity(){
-        City cityCreated = CityFactory.createCity("012345","Cape Town", Country "South African");
+        City cityCreated = CityFactory.createCity("012345","Cape Town", CountryFactory.build( "South African","Namibia"));
 
         assertAll(
                 ()-> assertTrue(cityCreated.getName().isEmpty()),
                 ()-> assertTrue(cityCreated.getId().isEmpty()),
                 ()-> assertTrue(cityCreated.getCountry(),
         ));
-        City cityCreated = CityFactory.build("012345","Cape Town", CountryFactory.build("1CNTY1","South Africa"));
+        City city = CityFactory.createCity("012345","Cape Town", CountryFactory.build("1CNTY1","South Africa"));
         assertNotNull(cityCreated);
         System.out.println(cityCreated);
 
@@ -30,7 +30,7 @@ class CityFactoryTest {
     }
 @Test
     public void completedValues(){
-        City city = CityFactory.createCity("012345","Mpumalanga",Country"South African");
+        City city = CityFactory.createCity("012345","Mpumalanga",CountryFactory.build("South African","South America"));
     System.out.println(createCity();
         assertNotNull(createCity();
 }

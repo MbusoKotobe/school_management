@@ -1,4 +1,4 @@
-package za.ac.cput.school_management.service.employeeAddressService.impl;
+/*package za.ac.cput.school_management.service.employeeAddressService.impl;
 
 import org.springframework.stereotype.Service;
 import za.ac.cput.school_management.domain.EmployeeAddress;
@@ -50,4 +50,4 @@ public class EmployeeAddressServiceImpl implements IEmployeeAddressService<Emplo
         repository.delete(object);
     }
 
-}
+}*/

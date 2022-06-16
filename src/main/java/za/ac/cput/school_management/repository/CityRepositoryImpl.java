@@ -44,7 +44,7 @@ public class CityRepositoryImpl implements ICityRepository {
     @Override
     public City save (City city){
        City.Builder cityId =
-                CityFactory.buildId(city);
+                CityFactory.buildById(city);
         Optional<City> read = read(city);
         if(read.isPresent()){
             delete(read.get());

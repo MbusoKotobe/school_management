@@ -16,9 +16,7 @@ import za.ac.cput.school_management.domain.City;
 
 import za.ac.cput.school_management.factory.CityFactory;
 
-import za.ac.cput.school_management.service.employeeService.ICityService;
-
-import javax.validation.Valid;
+import za.ac.cput.school_management.service.CityServiceImpl;
 import java.util.List;
 
 @RestController
@@ -26,11 +24,11 @@ import java.util.List;
 @Slf4j
 public class CityController {
 
-    private final ICityService cityServiceImpl;
+    private final CityServiceImpl cityServiceImpl;
 
 
     @Autowired
-    public CityController(ICityService cityServiceImpl){
+    public CityController(CityServiceImpl cityServiceImpl){
         this.cityServiceImpl = cityServiceImpl;
     }
     @PostMapping("save")
@@ -42,7 +40,7 @@ public class CityController {
 
         }catch (IllegalArgumentException e){
             log.info("Request for errors:{}",e.getMessage());
-            throw new ResponseStatusException((HttpStatus.BAD_REQUEST);
+            throw new ResponseStatusException((HttpStatus.BAD_REQUEST));
         }
         City save = cityServiceImpl.save((valideCity));
         return ResponseEntity.ok(save);
@@ -57,7 +55,7 @@ public class CityController {
     @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id){
         log.info("delete request{}",id);
-        this.cityServiceImpl.delete(id);
+        this.cityServiceImpl.deleteById(id);
         return ResponseEntity.noContent().build();
     }
     @GetMapping("all")
