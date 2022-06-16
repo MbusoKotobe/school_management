@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.school_management.domain.Employee;
 import za.ac.cput.school_management.domain.EmployeeAddress;
+import za.ac.cput.school_management.domain.Name;
+import za.ac.cput.school_management.factory.EmployeeAddressFactory;
 import za.ac.cput.school_management.service.employeeAddressService.IEmployeeAddressService;
 
 import java.util.List;
@@ -24,12 +26,15 @@ public class EmployeeAddressController {
     }
 
     @PostMapping("save")
-    public ResponseEntity save(@RequestBody EmployeeAddress employeeAddress)
+    public ResponseEntity<EmployeeAddress> save(@RequestBody EmployeeAddress employeeAddress)
     {
         EmployeeAddress employeeAddressAlt = null;
         try
         {
-            employeeAddressAlt = service.save(employeeAddress);
+            employeeAddressAlt = service.save(EmployeeAddressFactory.build(
+                    employeeAddress.getStaffId(),
+                    employeeAddress.getAddress()
+            ));
         }catch(IllegalArgumentException exception)
         {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
@@ -64,5 +69,12 @@ public class EmployeeAddressController {
     {
         service.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("find-by-city")
+    public ResponseEntity<List<EmployeeAddress>> findByCity(@PathVariable String cityId)
+    {
+        List<EmployeeAddress> employeeNames = service.findByCity(cityId);
+        return ResponseEntity.ok(employeeNames);
     }
 }
