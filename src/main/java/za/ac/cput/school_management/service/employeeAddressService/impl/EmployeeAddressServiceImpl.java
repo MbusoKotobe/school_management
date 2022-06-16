@@ -1,15 +1,18 @@
 package za.ac.cput.school_management.service.employeeAddressService.impl;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import za.ac.cput.school_management.domain.EmployeeAddress;
+import za.ac.cput.school_management.factory.EmployeeAddressFactory;
 import za.ac.cput.school_management.repository.IEmployeeAddressRepository;
 import za.ac.cput.school_management.service.employeeAddressService.IEmployeeAddressService;
 
 import java.util.List;
 import java.util.Optional;
 
+@Log4j2
 @Service
-public class EmployeeAddressServiceImpl implements IEmployeeAddressService<EmployeeAddress, String> {
+public class EmployeeAddressServiceImpl implements IEmployeeAddressService{
 
     private final IEmployeeAddressRepository repository;
 
@@ -19,7 +22,7 @@ public class EmployeeAddressServiceImpl implements IEmployeeAddressService<Emplo
     }
 
     @Override
-    public EmployeeAddress save(EmployeeAddress employeeAddress)
+    public EmployeeAddress save(EmployeeAddress employeeAddress) throws IllegalArgumentException
     {
         return repository.save(employeeAddress);
     }
@@ -40,8 +43,7 @@ public class EmployeeAddressServiceImpl implements IEmployeeAddressService<Emplo
     public void deleteById(String employeeId)
     {
         Optional<EmployeeAddress> employeeAddress = read(employeeId);
-        if(employeeAddress.isPresent())
-            delete(employeeAddress.get());
+        employeeAddress.ifPresent(this::delete);
     }
 
     @Override

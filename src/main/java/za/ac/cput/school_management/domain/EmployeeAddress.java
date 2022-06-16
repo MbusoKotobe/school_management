@@ -1,6 +1,5 @@
 package za.ac.cput.school_management.domain;
 
-import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,7 +10,6 @@ import javax.validation.constraints.NotNull;
  * Entity for Address
  * Date: 10 June 2022
  * */
-
 @Entity
 public class EmployeeAddress {
 

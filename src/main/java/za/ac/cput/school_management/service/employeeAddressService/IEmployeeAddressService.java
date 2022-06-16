@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface IEmployeeAddressService extends IService<EmployeeAddress, String> {
     void deleteById(String employeeId);
-
 }

@@ -6,7 +6,10 @@ Date: 12 June 2022 */
 package za.ac.cput.school_management.service.employeeService;
 
 import za.ac.cput.school_management.domain.Employee;
+import za.ac.cput.school_management.domain.Name;
 import za.ac.cput.school_management.service.IService;
+
+import java.util.List;
 
 public interface IEmployeeService extends IService<Employee, String> {
     void deleteById(String id);
