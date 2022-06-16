@@ -15,6 +15,7 @@ import za.ac.cput.school_management.domain.Employee;
 import za.ac.cput.school_management.domain.Name;
 import za.ac.cput.school_management.factory.EmployeeFactory;
 import za.ac.cput.school_management.factory.NameFactory;
+import za.ac.cput.school_management.helper.Helper;
 import za.ac.cput.school_management.service.employeeService.IEmployeeService;
 import java.util.List;
 
@@ -67,5 +68,20 @@ public class EmployeeController {
     public ResponseEntity<List<Employee>> findAll(){
         List<Employee> employeeList = this.employeeService.findAll();
         return ResponseEntity.ok(employeeList);
+    }
+
+    //Question 5:
+    @GetMapping("read-by-email/{email}")
+    public ResponseEntity<Name> findByEmail(@PathVariable String email){
+        log.info("Read name by email request: {}", email);
+        try{
+            Helper.checkEmail(email);
+        }catch(IllegalArgumentException e){
+            log.info("Find name by email request error: {}", e.getMessage());
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        Employee employee = this.employeeService.findByEmail(email)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return ResponseEntity.ok(employee.getName());
     }
 }
