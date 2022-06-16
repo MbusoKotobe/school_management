@@ -53,4 +53,16 @@ public class StudentServiceImpl implements IStudentService
     {
         return this.repo.findAll();
     }
+
+
+    public void deleteById(String id)
+    {
+        repo.deleteById(id);
+        Optional<Student> student = read(id);
+        if (student.isPresent())
+        {
+            delete(student.get());
+        }
+    }
 }
+

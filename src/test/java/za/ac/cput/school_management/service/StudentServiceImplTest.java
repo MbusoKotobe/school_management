@@ -57,9 +57,8 @@ class StudentServiceImplTest
     @Test
     void delete()
     {
-        this.s.delete(student);
+        this.s.deleteById(this.student.getStudentId());
         List<Student> ListStudent = this.s.findAll();
        assertEquals(0, ListStudent.size());
-        System.out.println(ListStudent);
     }
 }

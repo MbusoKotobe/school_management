@@ -10,5 +10,5 @@ import java.util.List;
 
 public interface IStudentService extends IService<Student, String>
 {
-
+    void deleteById(String id);
 }

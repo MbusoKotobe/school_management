@@ -23,7 +23,7 @@ ADP3 June assessment Group 1
 @Slf4j
 public class StudentController
 {
-    private IStudentService studentService;
+    private final IStudentService studentService;
 
     @Autowired public StudentController(IStudentService studentService)
     {
@@ -34,7 +34,7 @@ public class StudentController
     @PostMapping("save")
     public ResponseEntity<Student> save(@RequestBody Student student)
     {
-        log.info("Save : {}", student );
+        log.info("Save request:{}", student );
         Name ValidateN;
         Student ValidateS;
         try
@@ -46,7 +46,7 @@ public class StudentController
         }
         catch(IllegalArgumentException i)
         {
-            log.info("Save error: {}", i.getMessage());
+            log.info("Save error:{}", i.getMessage());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         Student save = studentService.save(ValidateS);
@@ -58,7 +58,7 @@ public class StudentController
     @GetMapping("read/{id}")
     public ResponseEntity<Student> read(@PathVariable String id)
     {
-        log.info("Read request: {}", id);
+        log.info("Read request:{}", id);
         Student student = this.studentService.read(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         return ResponseEntity.ok(student);
@@ -74,13 +74,11 @@ public class StudentController
     }
 
     //deleting
-    @DeleteMapping("delete")
-    public ResponseEntity<Void> delete(@PathVariable Student s)
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id)
     {
-        log.info("Delete Req: {}", s);
-        this.studentService.delete(s);
+        log.info("Delete Req:{}", id);
+        this.studentService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
-
 }
