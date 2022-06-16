@@ -1,4 +1,13 @@
+/* IEmployeeService.java
+Service interface for the Employee
+Author: Jody Kearns (209023651)
+Date: 12 June 2022 */
+
 package za.ac.cput.school_management.service.employeeService;
 
-public interface IEmployeeService {
+import za.ac.cput.school_management.domain.Employee;
+import za.ac.cput.school_management.service.IService;
+
+public interface IEmployeeService extends IService<Employee, String> {
+    void deleteById(String id);
 }

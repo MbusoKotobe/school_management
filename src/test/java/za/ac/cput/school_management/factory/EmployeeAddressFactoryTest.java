@@ -30,7 +30,7 @@ class EmployeeAddressFactoryTest {
     @Test
     public void createEmployeeAddressTest()
     {
-        Country country = CountryFactory.build("1CNTY1", "South Africa").build();
+        Country country = CountryFactory.build("1CNTY1", "South Africa");
         City city = CityFactory.build("1CTY1", "Cape Town", country);
         Address address = AddressFactory.build("18", "Bluebell Village", "412", "Chumani Rd", "1818", city);
 

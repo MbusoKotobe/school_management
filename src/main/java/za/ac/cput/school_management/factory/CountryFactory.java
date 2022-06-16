@@ -11,7 +11,8 @@ import za.ac.cput.school_management.helper.Helper;
 
 
 public class CountryFactory {
-    public static Country build (String countryId, String countryName) {
+    public static Country build(String countryId, String countryName)
+    {
         Helper.checkStringParam("countryId",countryId);
         Helper.checkStringParam("countryName", countryName);
         return new Country.Builder().setCountryId(countryId).setCountryName (countryName).build();

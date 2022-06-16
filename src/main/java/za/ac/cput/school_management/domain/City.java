@@ -6,10 +6,11 @@
  */
 package za.ac.cput.school_management.domain;
 
+
 public class City {
-    private final String id;
-    private final String name;
-    private final Country country;
+    private String id;
+    private String name;
+    private Country country;
 
     private City(Builder builder)
     {
@@ -50,11 +51,10 @@ public class City {
             return this;
         }
 
-        public Country setCountry(Country country)
+        public Builder setCountry(Country country)
         {
             this.country = country;
-
-            return country;
+            return this;
         }
 
         @Override
@@ -70,7 +70,6 @@ public class City {
 
     }
 }
-
 
 
 

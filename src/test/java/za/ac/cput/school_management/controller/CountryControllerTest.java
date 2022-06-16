@@ -1,9 +1,10 @@
-/* EmployeeControllerTest.java
-Test for the EmployeeController
-Author: Jody Kearns (209023651)
-Date: 13 June 2022 */
-
 package za.ac.cput.school_management.controller;
+/*
+ * Zintle Magwaxaza (218109911)
+ * CountryControllerTest.java
+ * Date: 15 June 2022
+ */
+
 
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,65 +13,68 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.school_management.domain.Employee;
-import za.ac.cput.school_management.domain.Name;
-import za.ac.cput.school_management.factory.EmployeeFactory;
-import za.ac.cput.school_management.factory.NameFactory;
+import za.ac.cput.school_management.domain.City;
+import za.ac.cput.school_management.domain.Country;
+import za.ac.cput.school_management.factory.CityFactory;
+import za.ac.cput.school_management.factory.CountryFactory;
+
 import java.util.Arrays;
+
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class EmployeeControllerTest {
+class CountryControllerTest {
 
     @LocalServerPort
     private int port;
 
-    @Autowired private EmployeeController controller;
+    @Autowired
+    private CountryController controller;
     @Autowired private TestRestTemplate restTemplate;
-    private Employee employee;
-    private Name name;
+    private Country country;
+    private City city;
     private String baseUrl;
 
     @BeforeEach
     void setUp() {
         assertNotNull(controller);
-        this.name = NameFactory.build("Jody", "","Kearns");
-        this.employee = EmployeeFactory.build("209023651","209023651@mycput.ac.za", name);
-        this.baseUrl = "http://localhost:" + this.port + "/schoolmanagement/employee/";
+        Country country = CountryFactory.build("RSA","SOUTH AFRICA");
+        City city = CityFactory.build("CPT","CAPE TOWN",country);
+        this.baseUrl = "http://localhost:" + this.port + "/schoolmanagement/country/";
     }
-
     @Order(1)
     @Test
     void save(){
         String url = baseUrl + "save";
         System.out.println(url);
-        ResponseEntity<Employee> response = this.restTemplate
-                .postForEntity(url, this.employee, Employee.class);
+        ResponseEntity<Country> response = this.restTemplate
+                .postForEntity(url, this.country, Country.class);
         System.out.println(response);
         assertAll(
                 () -> assertEquals(HttpStatus.OK,response.getStatusCode()),
-                () -> assertNotNull(response.getBody())
-        );
+                () -> assertNotNull(response.getBody()));
     }
+
 
     @Order(2)
     @Test
     void read(){
-        String url = baseUrl + "read/" + this.employee.getStaffId();
+        String url = baseUrl + "read/" + this.country.getCountryId();
         System.out.println(url);
-        ResponseEntity<Employee> response = this.restTemplate.getForEntity(url, Employee.class);
+        ResponseEntity<Country> response = this.restTemplate.getForEntity(url, Country.class);
         System.out.println(response);
         assertAll(
-                ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
+                ()-> assertEquals(HttpStatus.OK,response.getStatusCode()),
                 ()-> assertNotNull(response.getBody())
         );
     }
-
     @Order(3)
     @Test
     void delete(){
-        String url = baseUrl + "delete/" + this.employee.getStaffId();
+        String url = baseUrl + "delete/" + this.country.getCountryId();
         System.out.println(url);
         this.restTemplate.delete(url);
     }
@@ -80,12 +84,14 @@ class EmployeeControllerTest {
     void findAll(){
         String url = baseUrl + "all";
         System.out.println(url);
-        ResponseEntity<Employee[]> response =
-                this.restTemplate.getForEntity(url, Employee[].class);
+        ResponseEntity<Country[]> response =
+                this.restTemplate.getForEntity(url, Country[].class);
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
                 () -> assertEquals(0, response.getBody().length)
         );
     }
+
+
 }
