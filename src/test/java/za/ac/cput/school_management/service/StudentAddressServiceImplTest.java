@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.school_management.domain.*;
 import za.ac.cput.school_management.factory.*;
-import za.ac.cput.school_management.service.studentAddressService.impl.IStudentAddressService;
+import za.ac.cput.school_management.service.studentAddressService.IStudentAddressService;
 
 import java.util.List;
 import java.util.Optional;

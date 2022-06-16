@@ -41,6 +41,9 @@ public class Country {
 
     }
 
+    /**public Object equalsIgnoreCase(Object country) {
+    }**/
+
     public static class Builder {
 
        private String countryId;

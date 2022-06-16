@@ -1,5 +1,6 @@
 package za.ac.cput.school_management.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import za.ac.cput.school_management.service.employeeAddressService.IEmployeeAddr
 
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequestMapping("school-management/employee-address/")
 public class EmployeeAddressController {
@@ -37,6 +39,7 @@ public class EmployeeAddressController {
             ));
         }catch(IllegalArgumentException exception)
         {
+            log.info("EmployeeAddress Save : {}", exception);
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 
