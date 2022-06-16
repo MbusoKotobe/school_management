@@ -16,7 +16,7 @@ import za.ac.cput.school_management.service.employeeAddressService.IEmployeeAddr
 import java.util.List;
 
 @Slf4j
-@Controller
+@RestController
 @RequestMapping("school-management/employee-address/")
 public class EmployeeAddressController {
 
