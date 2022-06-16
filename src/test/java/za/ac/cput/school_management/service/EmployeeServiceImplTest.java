@@ -3,7 +3,7 @@ Test for the EmployeeServiceImpl
 Author: Jody Kearns (209023651)
 Date: 13 June 2022 */
 
-package za.ac.cput.school_management.controller.service;
+package za.ac.cput.school_management.service;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;

@@ -1,6 +1,6 @@
 /***
- * City.java
- * Entity for the City
+ * CityController.java
+ * Controller for the City
  * @Author: Elvis Ndlangamandla (213063964)
  * Date: 15 June 2022
  */
@@ -13,14 +13,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.school_management.domain.City;
-
 import za.ac.cput.school_management.service.cityService.ICityService;
-
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping ("School_Management/city/")
+@RequestMapping ("school-management/city/")
 @Slf4j
 public class CityController {
 
@@ -38,6 +36,7 @@ public class CityController {
         City save = cityService.save(city);
         return ResponseEntity.ok(save);
     }
+
     @GetMapping("read/{id}")
     public ResponseEntity<City> read (@PathVariable String id){
         log.info("Read request: {}",id);

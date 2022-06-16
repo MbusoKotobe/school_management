@@ -9,9 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.school_management.domain.*;
 import za.ac.cput.school_management.factory.*;
-
 import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
@@ -45,7 +43,7 @@ class StudentControllerTest
         assertNotNull(control);
         this.name = NameFactory.build("Ameer", "", "Ismail");
         this.student = StudentFactory.build("ameer567", "ameer567@gmail.com", name);
-        this.Url = "http://localhost:" + this.p + "/school_management/student/";
+        this.Url = "http://localhost:" + this.p + "/school-management/student/";
     }
 
     @Order(1)
