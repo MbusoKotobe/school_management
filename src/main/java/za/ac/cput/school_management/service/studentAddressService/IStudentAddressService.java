@@ -1,4 +1,4 @@
-package za.ac.cput.school_management.service.employeeService;
+package za.ac.cput.school_management.service.studentAddressService;
 
 import za.ac.cput.school_management.domain.StudentAddress;
 import za.ac.cput.school_management.service.IService;
