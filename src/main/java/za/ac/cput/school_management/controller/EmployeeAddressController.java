@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("school-management/employee-address/")
 public class EmployeeAddressController {
 
-    private IEmployeeAddressService service;
+    private final IEmployeeAddressService service;
 
     @Autowired public EmployeeAddressController(IEmployeeAddressService service)
     {

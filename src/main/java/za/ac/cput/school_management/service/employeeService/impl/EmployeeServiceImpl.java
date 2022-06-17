@@ -18,6 +18,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     private final IEmployeeRepository repository;
 
+
     @Autowired public EmployeeServiceImpl(IEmployeeRepository repository){
         this.repository = repository;
     }
@@ -53,4 +54,5 @@ public class EmployeeServiceImpl implements IEmployeeService {
     public Optional<Employee> findByEmail(String email) {
         return this.repository.findByEmail(email);
     }
+
 }

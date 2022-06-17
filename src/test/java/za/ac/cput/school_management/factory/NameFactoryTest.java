@@ -7,7 +7,6 @@ package za.ac.cput.school_management.factory;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.school_management.domain.Name;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class NameFactoryTest {

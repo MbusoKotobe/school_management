@@ -5,6 +5,7 @@ import org.apache.commons.validator.routines.EmailValidator;
 
 public class Helper {
 
+
     public static boolean isEmptyOrNull(String str){
         return StringUtils.isEmpty(str);
     }
