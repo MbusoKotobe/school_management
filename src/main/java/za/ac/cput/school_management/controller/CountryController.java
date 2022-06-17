@@ -5,7 +5,6 @@ package za.ac.cput.school_management.controller;
  * Date: 14 June 2022
  */
 
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

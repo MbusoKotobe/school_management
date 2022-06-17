@@ -7,12 +7,11 @@ package za.ac.cput.school_management.service.employeeService;
 
 import za.ac.cput.school_management.domain.Employee;
 import za.ac.cput.school_management.service.IService;
-
-
 import java.util.Optional;
 
 
 public interface IEmployeeService extends IService<Employee, String> {
     void deleteById(String id);
     Optional<Employee> findByEmail(String email);
+
 }

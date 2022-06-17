@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import za.ac.cput.school_management.api.StudentAPI;
 import za.ac.cput.school_management.domain.*;
 import za.ac.cput.school_management.factory.*;
 import za.ac.cput.school_management.service.studentService.IStudentService;
@@ -20,31 +21,28 @@ ADP3 June assessment Group 1
 @RestController
 @RequestMapping("school-management/student/")
 @Slf4j
-public class StudentController
-{
+public class StudentController {
     private final IStudentService studentService;
+    private final StudentAPI studentAPI;
 
-    @Autowired public StudentController(IStudentService studentService)
-    {
+    @Autowired
+    public StudentController(IStudentService studentService, StudentAPI studentAPI) {
         this.studentService = studentService;
+        this.studentAPI = studentAPI;
     }
 
     //saving
     @PostMapping("save")
-    public ResponseEntity<Student> save(@RequestBody Student student)
-    {
-        log.info("Save request:{}", student );
+    public ResponseEntity<Student> save(@RequestBody Student student) {
+        log.info("Save request:{}", student);
         Name ValidateN;
         Student ValidateS;
-        try
-        {
+        try {
             ValidateN = NameFactory.build(student.getName().getFirstName(),
                     student.getName().getMiddleName(), student.getName().getLastName());
 
             ValidateS = StudentFactory.build(student.getStudentId(), student.getEmail(), ValidateN);
-        }
-        catch(IllegalArgumentException i)
-        {
+        } catch (IllegalArgumentException i) {
             log.info("Save error:{}", i.getMessage());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
@@ -55,8 +53,7 @@ public class StudentController
 
     //reading
     @GetMapping("read/{id}")
-    public ResponseEntity<Student> read(@PathVariable String id)
-    {
+    public ResponseEntity<Student> read(@PathVariable String id) {
         log.info("Read request:{}", id);
         Student student = this.studentService.read(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -65,8 +62,7 @@ public class StudentController
 
     //find all
     @GetMapping("findAll")
-    public ResponseEntity<List<Student>> findAll()
-    {
+    public ResponseEntity<List<Student>> findAll() {
         List<Student> sList = this.studentService.findAll();
 
         return ResponseEntity.ok(sList);
@@ -74,10 +70,24 @@ public class StudentController
 
     //deleting
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id)
-    {
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         log.info("Delete Req:{}", id);
         this.studentService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    //Question 8:
+    @GetMapping("read-last-name-by-country-id/{countryId}")
+    public ResponseEntity<List<String>> findStudentsInCountry(@PathVariable String countryId) {
+        List<String> studentLastNamesList;
+        try {
+            log.info("get student last names by country id{}", countryId);
+            studentLastNamesList = this.studentAPI.findStudentsInCountry(countryId);
+        }catch (ResponseStatusException e){
+            throw e;
+
+        }
+        return ResponseEntity.ok(studentLastNamesList);
+
     }
 }
