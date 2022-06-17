@@ -24,6 +24,8 @@ public class Student
     @NotNull
     @Embedded private Name name;
 
+    {}
+
     protected Student(){
 
     }

@@ -1,24 +1,22 @@
 package za.ac.cput.school_management.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.school_management.domain.Employee;
 import za.ac.cput.school_management.domain.EmployeeAddress;
-import za.ac.cput.school_management.domain.Name;
 import za.ac.cput.school_management.factory.EmployeeAddressFactory;
 import za.ac.cput.school_management.service.employeeAddressService.IEmployeeAddressService;
-
 import java.util.List;
 
-@Controller
+@Slf4j
+@RestController
 @RequestMapping("school-management/employee-address/")
 public class EmployeeAddressController {
 
-    private IEmployeeAddressService service;
+    private final IEmployeeAddressService service;
 
     @Autowired public EmployeeAddressController(IEmployeeAddressService service)
     {
@@ -37,6 +35,7 @@ public class EmployeeAddressController {
             ));
         }catch(IllegalArgumentException exception)
         {
+            log.info("EmployeeAddress Save : {}", exception);
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 

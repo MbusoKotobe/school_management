@@ -18,7 +18,7 @@ ADP3 June assessment Group 1
 public class StudentServiceImpl implements IStudentService
 {
 
-    private IStudentRepository repo;
+    private final IStudentRepository repo;
 
     @Autowired
     public StudentServiceImpl(IStudentRepository repo)

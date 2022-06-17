@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.school_management.domain.*;
 import za.ac.cput.school_management.factory.*;
-import za.ac.cput.school_management.service.studentAddressService.impl.IStudentAddressService;
-
+import za.ac.cput.school_management.service.studentAddressService.IStudentAddressService;
 import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,7 +14,7 @@ class StudentAddressServiceImplTest {
 
         private final Country country = CountryFactory.build("01", "gh");
         private final City city = CityFactory.build("01", "gh", country);
-        private Address address = AddressFactory.build("20",
+        private final Address address = AddressFactory.build("20",
                 "one","02", "TWO","00", city);
         private final StudentAddress studentAddress = StudentAddressFactory.build("22", address);
 
