@@ -5,7 +5,6 @@ package za.ac.cput.school_management.controller;
  * Date: 14 June 2022
  */
 
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,6 +43,7 @@ public CountryController(ICountryService countryService){
     @DeleteMapping("delete/{country}")
     public ResponseEntity<Void> delete(@PathVariable String country) {
         log.info("Delete request{}", country);
+        this.countryService.deleteById(country);
         return ResponseEntity.noContent().build();
     }
     @GetMapping("all")

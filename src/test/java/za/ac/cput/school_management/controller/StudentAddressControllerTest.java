@@ -9,9 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.school_management.domain.*;
 import za.ac.cput.school_management.factory.*;
-
 import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -34,9 +32,9 @@ class StudentAddressControllerTest {
         Country country = CountryFactory.build("01", "gh");
         City city = CityFactory.build("01", "gh", country);
         this.address = AddressFactory.build("20",
-                "one","02", "TWO","00", city);
+                "one","02", "TWO","1005", city);
         this.studentAddress = StudentAddressFactory.build("22", address);
-        this.baseUrl = "http://localhost:" + this.port + "/schoolmanagement/studentAddresss/";
+        this.baseUrl = "http://localhost:" + this.port + "/school-management/student-address/";
     }
 
     @Order(1)

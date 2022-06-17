@@ -9,11 +9,10 @@ package za.ac.cput.school_management.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import za.ac.cput.school_management.domain.City;
-
+import za.ac.cput.school_management.domain.Country;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface ICityRepository extends JpaRepository<City, String> {
-
+    List<City> findCitiesByCountry(Country country);
 }

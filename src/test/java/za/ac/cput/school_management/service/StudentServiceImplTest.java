@@ -1,4 +1,4 @@
-package za.ac.cput.school_management.controller.service;
+package za.ac.cput.school_management.service;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -9,10 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.school_management.domain.*;
 import za.ac.cput.school_management.factory.*;
 import za.ac.cput.school_management.service.studentService.IStudentService;
-
 import java.util.List;
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest

@@ -5,7 +5,6 @@ import za.ac.cput.school_management.domain.Address;
 import za.ac.cput.school_management.domain.City;
 import za.ac.cput.school_management.domain.Country;
 import za.ac.cput.school_management.domain.StudentAddress;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class StudentAddressFactoryTest {

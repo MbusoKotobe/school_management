@@ -2,13 +2,11 @@ package za.ac.cput.school_management.domain;
 
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
-
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
-
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.PERSIST;
 
@@ -82,32 +80,32 @@ public class Address {
         return city;
     }
 
-    protected void setUnitNumber(String unitNumber)
+    private void setUnitNumber(String unitNumber)
     {
         this.unitNumber = unitNumber;
     }
 
-    protected void setComplexName(String complexName)
+    private void setComplexName(String complexName)
     {
         this.complexName = complexName;
     }
 
-    protected void setStreetNumber(String streetNumber)
+    private void setStreetNumber(String streetNumber)
     {
         this.streetNumber = streetNumber;
     }
 
-    protected void setStreetName(String streetName)
+    private void setStreetName(String streetName)
     {
         this.streetName = streetName;
     }
 
-    protected void setPostalCode(String postalCode)
+    private void setPostalCode(String postalCode)
     {
         this.postalCode = postalCode;
     }
 
-    protected void setCity(City city)
+    private void setCity(City city)
     {
         this.city = city;
     }
