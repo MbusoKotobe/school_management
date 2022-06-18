@@ -6,6 +6,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.PERSIST;
@@ -15,8 +16,10 @@ import static javax.persistence.CascadeType.PERSIST;
  * Entity for Address
  * Date: 10 June 2022
  * */
+
+
 @Embeddable
-public class Address {
+public class Address implements Serializable {
 
     @NotBlank(message = "Unit Number is mandatory")
     private String unitNumber;
@@ -124,18 +127,16 @@ public class Address {
     }
 
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Address)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return getUnitNumber().equals(address.getUnitNumber()) && getComplexName().equals(address.getComplexName()) && getStreetNumber().equals(address.getStreetNumber()) && getStreetName().equals(address.getStreetName()) && getPostalCode().equals(address.getPostalCode()) && getCity().equals(address.getCity());
+        return unitNumber.equals(address.unitNumber) && complexName.equals(address.complexName) && streetNumber.equals(address.streetNumber) && streetName.equals(address.streetName) && postalCode.equals(address.postalCode) && city.equals(address.city);
     }
 
     @Override
-    public int hashCode()
-    {
-        return Objects.hash(getUnitNumber(), getComplexName(), getStreetNumber(), getStreetName(), getPostalCode(), getCity());
+    public int hashCode() {
+        return Objects.hash(unitNumber, complexName, streetNumber, streetName, postalCode, city);
     }
 
     public static class Builder

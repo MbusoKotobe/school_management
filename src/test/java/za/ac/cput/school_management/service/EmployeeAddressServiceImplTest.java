@@ -2,18 +2,18 @@ package za.ac.cput.school_management.service;
 
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.school_management.domain.*;
 import za.ac.cput.school_management.factory.AddressFactory;
 import za.ac.cput.school_management.factory.CityFactory;
 import za.ac.cput.school_management.factory.CountryFactory;
 import za.ac.cput.school_management.factory.EmployeeAddressFactory;
 import za.ac.cput.school_management.service.employeeAddressService.IEmployeeAddressService;
-
 import java.util.List;
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class EmployeeAddressServiceImplTest {
     private EmployeeAddress employeeAddress = null;
@@ -77,6 +77,7 @@ class EmployeeAddressServiceImplTest {
     {
         List<EmployeeAddress> employeeAddressList = null;
 
+        service.delete(employeeAddress);
         employeeAddressList = service.findAll();
 
         assertEquals(0, employeeAddressList.size());

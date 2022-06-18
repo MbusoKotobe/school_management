@@ -1,6 +1,5 @@
 package za.ac.cput.school_management.domain;
 
-
 /*
 Author: Ameer Ismail
 student nr: 218216033
@@ -10,12 +9,12 @@ ADP3 June assessment Group 1
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 
 
 @Entity
-public class Student
-{
+public class Student implements Serializable {
     @NotNull
     @Id private String studentId;
 

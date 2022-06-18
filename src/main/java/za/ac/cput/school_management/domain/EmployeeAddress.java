@@ -4,14 +4,18 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * @author Mbuso Kotobe (218040385)
  * Entity for Address
  * Date: 10 June 2022
  * */
+
+
 @Entity
-public class EmployeeAddress {
+public class EmployeeAddress implements Serializable{
 
     @Id
     @NotNull
@@ -46,6 +50,19 @@ public class EmployeeAddress {
                 "staffId='" + staffId + '\'' +
                 ", address=" + address +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmployeeAddress that = (EmployeeAddress) o;
+        return staffId.equals(that.staffId) && address.equals(that.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(staffId, address);
     }
 
     public static class Builder

@@ -8,17 +8,19 @@ package za.ac.cput.school_management.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Objects;
 
+
 @Entity
-public class Country {
+public class Country implements Serializable {
     @Id
-    private  String countryId;
+    private String countryId;
 
-    private  String countryName;
+    private String countryName;
 
-    protected Country()
-    {}
+    protected Country() {
+    }
 
     private Country(Builder builder) {
         this.countryId = builder.countryId;
@@ -34,6 +36,19 @@ public class Country {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Country country = (Country) o;
+        return countryId.equals(country.countryId) && countryName.equals(country.countryName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(countryId, countryName);
+    }
+
+    @Override
     public String toString() {
         return "country{" +
                 "countryId='" + countryId + '\'' +
@@ -41,13 +56,11 @@ public class Country {
 
     }
 
-    /**public Object equalsIgnoreCase(Object country) {
-    }**/
 
     public static class Builder {
 
-       private String countryId;
-       private String countryName;
+        private String countryId;
+        private String countryName;
 
         public Builder setCountryId(String countryId) {
             this.countryId = countryId;
@@ -69,21 +82,4 @@ public class Country {
             return new Country(this);
         }
     }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Country that = (Country) o;
-        return countryId.equals(that.countryId) &&
-                countryName.equals(that.countryName);
-    }
-
-    @Override
-    public int hashCode()
-    {
-        return Objects.hash(countryId, countryName);
-    }
-
 }

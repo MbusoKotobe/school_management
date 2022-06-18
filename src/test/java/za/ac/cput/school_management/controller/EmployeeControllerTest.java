@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.school_management.domain.*;
 import za.ac.cput.school_management.factory.*;
+import za.ac.cput.school_management.service.employeeAddressService.IEmployeeAddressService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,9 +30,15 @@ class EmployeeControllerTest {
 
     @Autowired private EmployeeController controller;
     @Autowired private TestRestTemplate restTemplate;
+
+    @Autowired private IEmployeeAddressService employeeAddressService;
+
     private Employee employee;
     private Name name;
     private String baseUrl;
+
+
+    private EmployeeAddress employeeAddress;
 
     @BeforeEach
     void setUp() {
@@ -39,6 +46,15 @@ class EmployeeControllerTest {
         this.name = NameFactory.build("Jody", "","Kearns");
         this.employee = EmployeeFactory.build("209023651","209023651@mycput.ac.za", name);
         this.baseUrl = "http://localhost:" + this.port + "/school-management/employee/";
+
+
+
+        //Creating/Saving Employee address in order to Test Question 6:
+        Country country = CountryFactory.build("USA", "United States of America");
+        City city = CityFactory.build("TX","Texas", country);
+        Address address = AddressFactory.build("4395", "Bluebell Village","102","Excelsior Street","7558",city);
+        this.employeeAddress = EmployeeAddressFactory.build("209023651", address);
+        this.employeeAddressService.save(employeeAddress);
     }
 
     @Order(1)
@@ -105,22 +121,19 @@ class EmployeeControllerTest {
         );
     }
 
+    //Question 6:
     @Order(4)
     @Test
     void findEmpByCity(){
-        Country country = CountryFactory.build("USA", "United States of America");
-        City city = CityFactory.build("TX","Texas", country);
-        Address address = AddressFactory.build("4395", "Bluebell Village","102","Excelsior Street","7558",city);
-        EmployeeAddress employeeAddress = EmployeeAddressFactory.build("209023651", address);
+
         String url = baseUrl + "read-employee-name-by-city-id/" + employeeAddress.getAddress().getCity().getId();
         System.out.println(url);
 
-        ResponseEntity<Name[]> response =
-                this.restTemplate.getForEntity(url, Name[].class);
-        System.out.println(Arrays.asList(response.getBody()));
+        ResponseEntity<Name[]> response = this.restTemplate.getForEntity(url, Name[].class);
+        System.out.println(response.getBody());
         assertAll(
                 () -> assertEquals(HttpStatus.OK,response.getStatusCode()),
-                () -> assertEquals(1, response.getBody().length)
+                () -> assertEquals(1, response.getBody())
         );
     }
 }

@@ -74,13 +74,13 @@ class CityControllerTest {
         () ->assertNotNull(response.getBody())
         );
     }
-    @Order(3)
+    @Order(4)
     @Test
     void delete(){
         String url = baseUrl + "delete/" + this.city.getId();
         this.restTemplate.delete(url);
     }
-    @Order(4)
+    @Order(5)
     @Test
     void findAll(){
         String url = baseUrl + "all";
@@ -92,6 +92,21 @@ class CityControllerTest {
                 () -> assertEquals(0, response.getBody().length)
 
         );
-        System.out.println(baseUrl);
     }
+
+    //Question 7:
+    @Order(3)
+    @Test
+    void findCitiesByCountry(){
+        String url = baseUrl + "school-management/city/" + country.getCountryId();
+        System.out.println(url);
+        ResponseEntity<String[]> response = this.restTemplate.getForEntity(url, String[].class);
+        System.out.println(response.getBody());
+        assertAll(
+                () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
+                () -> assertEquals(1, response.getBody().length)
+        );
+
+    }
+
 }

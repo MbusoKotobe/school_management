@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("school-management/country/")
 @Slf4j
-public class CountryController {
+public class CountryController{
     private final ICountryService countryService;
 
     @Autowired
