@@ -7,9 +7,17 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.school_management.domain.*;
-import za.ac.cput.school_management.factory.*;
+import za.ac.cput.school_management.domain.Address;
+import za.ac.cput.school_management.domain.City;
+import za.ac.cput.school_management.domain.Country;
+import za.ac.cput.school_management.domain.StudentAddress;
+import za.ac.cput.school_management.factory.AddressFactory;
+import za.ac.cput.school_management.factory.CityFactory;
+import za.ac.cput.school_management.factory.CountryFactory;
+import za.ac.cput.school_management.factory.StudentAddressFactory;
+
 import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

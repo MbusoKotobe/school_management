@@ -4,7 +4,11 @@ package za.ac.cput.school_management.service;
  * CountryServiceImplTest
  * Date: 14 June 2022
  */
-import org.junit.jupiter.api.*;
+
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.school_management.domain.City;
@@ -12,8 +16,10 @@ import za.ac.cput.school_management.domain.Country;
 import za.ac.cput.school_management.factory.CityFactory;
 import za.ac.cput.school_management.factory.CountryFactory;
 import za.ac.cput.school_management.service.countryService.ICountryService;
+
 import java.util.List;
 import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest

@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import za.ac.cput.school_management.domain.City;
 import za.ac.cput.school_management.domain.Country;
+
 import java.util.List;
 
 @Repository

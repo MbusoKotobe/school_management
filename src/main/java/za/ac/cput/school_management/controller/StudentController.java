@@ -2,13 +2,17 @@ package za.ac.cput.school_management.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.school_management.api.StudentAPI;
-import za.ac.cput.school_management.domain.*;
-import za.ac.cput.school_management.factory.*;
+import za.ac.cput.school_management.domain.Name;
+import za.ac.cput.school_management.domain.Student;
+import za.ac.cput.school_management.factory.NameFactory;
+import za.ac.cput.school_management.factory.StudentFactory;
 import za.ac.cput.school_management.service.studentService.IStudentService;
+
 import java.util.List;
 
 /*

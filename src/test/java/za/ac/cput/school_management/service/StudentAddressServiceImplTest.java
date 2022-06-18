@@ -3,11 +3,19 @@ package za.ac.cput.school_management.service;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import za.ac.cput.school_management.domain.*;
-import za.ac.cput.school_management.factory.*;
+import za.ac.cput.school_management.domain.Address;
+import za.ac.cput.school_management.domain.City;
+import za.ac.cput.school_management.domain.Country;
+import za.ac.cput.school_management.domain.StudentAddress;
+import za.ac.cput.school_management.factory.AddressFactory;
+import za.ac.cput.school_management.factory.CityFactory;
+import za.ac.cput.school_management.factory.CountryFactory;
+import za.ac.cput.school_management.factory.StudentAddressFactory;
 import za.ac.cput.school_management.service.studentAddressService.IStudentAddressService;
+
 import java.util.List;
 import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class StudentAddressServiceImplTest {

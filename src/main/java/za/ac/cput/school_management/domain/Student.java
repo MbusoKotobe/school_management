@@ -8,7 +8,9 @@ domain: Student entity
 ADP3 June assessment Group 1
  */
 
-import javax.persistence.*;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 

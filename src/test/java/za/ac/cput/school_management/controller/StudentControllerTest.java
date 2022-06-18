@@ -7,9 +7,13 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.school_management.domain.*;
-import za.ac.cput.school_management.factory.*;
+import za.ac.cput.school_management.domain.Name;
+import za.ac.cput.school_management.domain.Student;
+import za.ac.cput.school_management.factory.NameFactory;
+import za.ac.cput.school_management.factory.StudentFactory;
+
 import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /*

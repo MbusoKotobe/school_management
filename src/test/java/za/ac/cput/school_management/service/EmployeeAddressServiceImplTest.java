@@ -2,7 +2,10 @@ package za.ac.cput.school_management.service;
 
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import za.ac.cput.school_management.domain.*;
+import za.ac.cput.school_management.domain.Address;
+import za.ac.cput.school_management.domain.City;
+import za.ac.cput.school_management.domain.Country;
+import za.ac.cput.school_management.domain.EmployeeAddress;
 import za.ac.cput.school_management.factory.AddressFactory;
 import za.ac.cput.school_management.factory.CityFactory;
 import za.ac.cput.school_management.factory.CountryFactory;
