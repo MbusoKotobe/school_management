@@ -1,5 +1,26 @@
 # School Management
 
+## Question 10:
+## Flaws found in the UML Diagram
+
+1. Access Modifiers -> Attributes in a domain class should be marked as private and should not be accessible from outside the class.
+
+2. UML Depicts a relationship between Employeee and EmployeeAddress. Student and StudentAddress also depict the same thing. But, the attributes of all four classes do not allow such a relationship to be created. These tables not having their relationship implemented causes a disjointed relationship. 
+
+3. Address should have been a complete Entity and not a value object. The reason for this is that, Address would now contain an Id which can then be used as a foreign key in the EmployeeAddress and StudentAddress Entities.
+This would allow StudentAddress and EmployeeAddress to behave like a bridging entity as it should with a composite key from two Entities. This will change the nature of the relationship between Employee and EmployeeAddress; Student and StudentAddress to a OneToMany relationship.
+
+4. Employee and Student are redundant as they could have been combined to form one entity since they have the same attributes.
+---
+## Design and Implementation Flaws
+
+1. Due to the use of ValueObjects, by design, value objects should be mutable. Since they are mutable or should be mutable, there is a conflict between our chosen design pattern which is the Builder Pattern. It strickly enforces immutability. This is a design flaw.
+
+2. The requirements document could be improved further as it lacks information in terms of which services should be exposed and which should not, specifically referring to the read, save, delete, readAll services.
+
+3. Due to the flaw mentioned -> ***Flaws found in the UML Diagram (#3)***. During a save procedure of a StudentAddress or EmployeeAddress, it is possible to save an EmployeeAddress or StudentAddress with an stuffId or studentId that does not exist in the Employee or Student table. 
+---
+
 ## Repository Interfaces & Classes Naming Convention
 
 ### Naming the Interface
@@ -70,3 +91,5 @@ some help to them to track down their cause.
 > A commit for a new feature
 `FEATURE: Added session tracking for logged-in users`
 ---
+
+
