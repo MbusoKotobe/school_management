@@ -1,6 +1,7 @@
 package za.ac.cput.school_management.service.employeeAddressService.impl;
 
-import lombok.extern.log4j.Log4j2;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.school_management.domain.EmployeeAddress;
 import za.ac.cput.school_management.repository.IEmployeeAddressRepository;
@@ -8,13 +9,13 @@ import za.ac.cput.school_management.service.employeeAddressService.IEmployeeAddr
 import java.util.List;
 import java.util.Optional;
 
-@Log4j2
+
 @Service
 public class EmployeeAddressServiceImpl implements IEmployeeAddressService{
 
     private final IEmployeeAddressRepository repository;
 
-    public EmployeeAddressServiceImpl(IEmployeeAddressRepository repo)
+    @Autowired public EmployeeAddressServiceImpl(IEmployeeAddressRepository repo)
     {
         this.repository = repo;
     }

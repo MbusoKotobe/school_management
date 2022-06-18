@@ -21,7 +21,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class CountryServiceImplTest {
 
     Country country = CountryFactory.build("RSA","South Africa");
-    City city = CityFactory.build("CPT","CAPE TOWN", country);
 
     @Autowired
     private ICountryService countryService;
@@ -41,7 +40,7 @@ class CountryServiceImplTest {
           System.out.println(read);
             assertAll(
                     ()-> assertTrue(read.isPresent()),
-                    () -> assertSame(this.country, read.get())
+                    () -> assertEquals(this.country, read.get())
             );
         }
         @Order(3)

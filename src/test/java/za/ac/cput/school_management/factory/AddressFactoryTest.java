@@ -31,9 +31,9 @@ class AddressFactoryTest {
         Country country = CountryFactory.build("1CNTY1", "South Africa");
         City city = CityFactory.build("1CTY1", "Cape Town", country);
 
-        var results = assertThrows(AssertionError.class, () -> AddressFactory.build("18", null, "412", null, "1818", city));
-        var resultsTwo = assertThrows(AssertionError.class, () -> AddressFactory.build("", "Bluebell Village", "412", "Chumani Rd", "1818", city));
-        var resultsThree = assertThrows(AssertionError.class, () -> AddressFactory.build("", "Bluebell Village", "412", "Chumani Rd", "1818", null));
+        var results = assertThrows(IllegalArgumentException.class, () -> AddressFactory.build("18", null, "412", null, "1818", city));
+        var resultsTwo = assertThrows(IllegalArgumentException.class, () -> AddressFactory.build("", "Bluebell Village", "412", "Chumani Rd", "1818", city));
+        var resultsThree = assertThrows(IllegalArgumentException.class, () -> AddressFactory.build("", "Bluebell Village", "412", "Chumani Rd", "1818", null));
 
         assertThat(results.getMessage(), containsString("Invalid value for:"));
         assertThat(resultsTwo.getMessage(), containsString("Invalid value for:"));

@@ -13,6 +13,7 @@ import java.util.Objects;
 
 /* @Email - Did not use javax validator as commons validator is more thorough when checking for email validation.
 * @NotNull/@NotBlank - Did not use as checks for nulls/blanks is done in the helper and Factory class.*/
+
 @Entity
 public class Employee implements Serializable {
 

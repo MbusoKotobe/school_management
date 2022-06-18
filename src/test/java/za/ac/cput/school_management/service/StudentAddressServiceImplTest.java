@@ -1,8 +1,11 @@
 package za.ac.cput.school_management.service;
 
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.school_management.domain.*;
 import za.ac.cput.school_management.factory.*;
 import za.ac.cput.school_management.service.studentAddressService.IStudentAddressService;
@@ -10,12 +13,14 @@ import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class StudentAddressServiceImplTest {
 
         private final Country country = CountryFactory.build("01", "gh");
         private final City city = CityFactory.build("01", "gh", country);
         private final Address address = AddressFactory.build("20",
-                "one","02", "TWO","00", city);
+                "one","02", "TWO","1234", city);
         private final StudentAddress studentAddress = StudentAddressFactory.build("22", address);
 
     @Autowired

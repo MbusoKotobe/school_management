@@ -8,6 +8,9 @@ package za.ac.cput.school_management.factory;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.school_management.domain.Country;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -27,7 +30,8 @@ public class CountryFactoryTest {
 
     String exceptionMessage = exception.getMessage();
     System.out.println(exceptionMessage);
-    assertSame(  "country ID is required!", exceptionMessage);
+    assertThat(exceptionMessage, containsString("Invalid value for: countryId"));
+
 
     }
 }
