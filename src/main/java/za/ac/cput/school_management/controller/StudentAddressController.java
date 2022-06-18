@@ -13,7 +13,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import za.ac.cput.school_management.domain.Address;
+import za.ac.cput.school_management.domain.City;
+import za.ac.cput.school_management.domain.Country;
 import za.ac.cput.school_management.domain.StudentAddress;
+import za.ac.cput.school_management.factory.AddressFactory;
+import za.ac.cput.school_management.factory.CityFactory;
+import za.ac.cput.school_management.factory.CountryFactory;
+import za.ac.cput.school_management.factory.StudentAddressFactory;
 import za.ac.cput.school_management.service.studentAddressService.IStudentAddressService;
 
 import javax.validation.Valid;
@@ -32,7 +39,24 @@ public class StudentAddressController {
     @PostMapping("save")
     public ResponseEntity<StudentAddress> save(@Valid @RequestBody StudentAddress studentAddress){
         log.info("Save request: {}", studentAddress);
-        StudentAddress save = studentAddressService.save(studentAddress);
+        StudentAddress save = null;
+        try{
+            Country validatedCountry = CountryFactory.build(studentAddress.getAddress().getCity().getCountry().getCountryId(), studentAddress.getAddress().getCity().getCountry().getCountryName());
+            City validatedCity = CityFactory.build(studentAddress.getAddress().getCity().getId(), studentAddress.getAddress().getCity().getName(), validatedCountry);
+            Address address = AddressFactory.build(
+                    studentAddress.getAddress().getUnitNumber(),
+                    studentAddress.getAddress().getComplexName(),
+                    studentAddress.getAddress().getStreetNumber(),
+                    studentAddress.getAddress().getStreetName(),
+                    studentAddress.getAddress().getPostalCode(),
+                    validatedCity);
+            StudentAddress validatedStudentAddress = StudentAddressFactory.build(studentAddress.getStudentId(), address);
+            save = studentAddressService.save(validatedStudentAddress);
+        }catch(IllegalArgumentException exception)
+        {
+            log.info("EmployeeAddress Save : {}", exception);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
         return ResponseEntity.ok(save);
     }
 

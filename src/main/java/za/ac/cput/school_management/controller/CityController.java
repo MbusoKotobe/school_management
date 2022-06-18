@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.school_management.api.CityAPI;
 import za.ac.cput.school_management.domain.City;
+import za.ac.cput.school_management.domain.Country;
+import za.ac.cput.school_management.factory.CityFactory;
+import za.ac.cput.school_management.factory.CountryFactory;
 import za.ac.cput.school_management.service.cityService.ICityService;
 
 import javax.validation.Valid;
@@ -38,8 +41,16 @@ public class CityController {
     @PostMapping("save")
     public ResponseEntity<City> save(@Valid @RequestBody City city) {
         log.info("save request: {}", city);
-        City save = cityService.save(city);
-        return ResponseEntity.ok(save);
+        City saved = null;
+        try{
+            Country country = CountryFactory.build(city.getCountry().getCountryId(), city.getCountry().getCountryName());
+            City save = CityFactory.build(city.getId(), city.getName(), country);
+            saved = cityService.save(save);
+        }catch(IllegalArgumentException exception)
+        {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        return ResponseEntity.ok(saved);
     }
 
     @GetMapping("read/{id}")

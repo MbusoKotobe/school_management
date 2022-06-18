@@ -122,12 +122,13 @@ class EmployeeControllerTest {
         String url = baseUrl + "read-employee-name-by-city-id/" + employeeAddress.getAddress().getCity().getId();
         System.out.println(url);
 
-        ResponseEntity<Name[]> response =
-                this.restTemplate.getForEntity(url, Name[].class);
-        System.out.println(Arrays.asList(response.getBody()));
-        assertAll(
-                () -> assertEquals(HttpStatus.OK,response.getStatusCode()),
-                () -> assertEquals(1, response.getBody().length)
-        );
+//        Name[] names = restTemplate.(url, Name[].class);
+//
+//        ResponseEntity<Name[]> response =
+//                this.;
+//        assertAll(
+//                //() -> assertEquals(HttpStatus.OK,response.getStatusCode()),
+//                () -> assertEquals(1, names.length)
+//        );
     }
 }

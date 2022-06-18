@@ -4,6 +4,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 /**
  * @author Mbuso Kotobe (218040385)
@@ -37,6 +38,21 @@ public class EmployeeAddress {
     public Address getAddress()
     {
         return address;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (!(o instanceof EmployeeAddress)) return false;
+        EmployeeAddress that = (EmployeeAddress) o;
+        return getStaffId().equals(that.getStaffId()) && getAddress().equals(that.getAddress());
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(getStaffId(), getAddress());
     }
 
     @Override

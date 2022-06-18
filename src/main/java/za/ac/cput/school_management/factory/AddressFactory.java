@@ -17,7 +17,9 @@ import java.lang.reflect.Field;
 public class AddressFactory {
     public static Address build(String unitNumber, String complexName, String streetNumber, String streetName, String postalCode, City city) throws IllegalArgumentException
     {
-        validateAttributes(unitNumber, complexName, streetNumber, streetName, postalCode, city);
+        unitNumber = Helper.setEmptyIfNull(unitNumber);
+        complexName = Helper.setEmptyIfNull(complexName);
+        validateAttributes(streetNumber, streetName, postalCode, city);
         return new Address.Builder().setUnitNumber(unitNumber)
                                     .setComplexName(complexName)
                                     .setStreetNumber(streetNumber)
@@ -26,10 +28,8 @@ public class AddressFactory {
                                     .setCity(city).build();
     }
 
-    private static void validateAttributes(String unitNumber, String complexName, String streetNumber, String streetName, String postalCode, City city) throws IllegalArgumentException
+    private static void validateAttributes(String streetNumber, String streetName, String postalCode, City city) throws IllegalArgumentException
     {
-        Helper.checkStringParam("unitNumber", unitNumber);
-        Helper.checkStringParam("complexName", complexName);
         Helper.checkStringParam("streetNumber", streetNumber);
         Helper.checkStringParam("streetName", streetName);
         Helper.checkStringParam("postalCode", postalCode);

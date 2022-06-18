@@ -30,8 +30,6 @@ public class EmployeeAddressFactory {
         Helper.checkIfObjectNull("city", address.getCity());
         Helper.checkIfObjectNull("country", address.getCity().getCountry());
         Helper.checkStringParam("employeeId", employeeId);
-        Helper.checkStringParam("unitNumber", address.getUnitNumber());
-        Helper.checkStringParam("complexName", address.getComplexName());
         Helper.checkStringParam("streetNumber", address.getStreetNumber());
         Helper.checkStringParam("streetName", address.getStreetName());
         Helper.checkStringParam("postalCode", address.getPostalCode());

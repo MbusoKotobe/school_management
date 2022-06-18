@@ -39,9 +39,9 @@ public class EmployeeAddressServiceImpl implements IEmployeeAddressService{
     }
 
     @Override
-    public void deleteById(String employeeId)
+    public void deleteById(String staffId)
     {
-        Optional<EmployeeAddress> employeeAddress = read(employeeId);
+        Optional<EmployeeAddress> employeeAddress = read(staffId);
         employeeAddress.ifPresent(this::delete);
     }
 

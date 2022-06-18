@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.school_management.domain.Country;
+import za.ac.cput.school_management.factory.CountryFactory;
 import za.ac.cput.school_management.service.countryService.ICountryService;
 
 import javax.validation.Valid;
@@ -28,10 +29,18 @@ public class CountryController {
 public CountryController(ICountryService countryService){
     this.countryService = countryService;
 }
+
     @PostMapping("save")
     public ResponseEntity<Country> save(@Valid @RequestBody Country country){
         log.info("Save request: {}", country );
-         Country save = countryService.save(country);
+         Country save = null;
+         try{
+             Country validatedCountry = CountryFactory.build(country.getCountryId(), country.getCountryName());
+             save = countryService.save(validatedCountry);
+         }catch(IllegalArgumentException exception)
+         {
+             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+         }
         return ResponseEntity.ok(save);
     }
     @GetMapping("read/{id}")

@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /* @NotNull/@NotBlank - Did not use as checks for nulls/blanks is done in the helper and Factory class.*/
 @Embeddable
-public class Name implements Serializable {
+public class Name {
 
     private String firstName;
     private String middleName;
