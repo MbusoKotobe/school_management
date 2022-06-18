@@ -35,13 +35,13 @@ class EmployeeAddressFactoryTest {
         City city = CityFactory.build("1CTY1", "Cape Town", country);
         Address address = AddressFactory.build("18", "Bluebell Village", "412", "Chumani Rd", "1818", city);
 
-        var results = assertThrows(AssertionError.class, () -> EmployeeAddressFactory.build(null, address));
-        var resultsTwo = assertThrows(AssertionError.class, () -> EmployeeAddressFactory.build("", address));
-        var resultsThree = assertThrows(AssertionError.class, () -> EmployeeAddressFactory.build("1EMP1", null));
+        var results = assertThrows(IllegalArgumentException.class, () -> EmployeeAddressFactory.build(null, address));
+        var resultsTwo = assertThrows(IllegalArgumentException.class, () -> EmployeeAddressFactory.build("", address));
+        var resultsThree = assertThrows(IllegalArgumentException.class, () -> EmployeeAddressFactory.build("1EMP1", null));
 
         assertThat(results.getMessage(), containsString("Invalid value for:"));
         assertThat(resultsTwo.getMessage(), containsString("Invalid value for:"));
-        assertThat(resultsThree.getMessage(), containsString("Invalid value for:"));
+        assertThat(resultsThree.getMessage(), containsString("address is null"));
         assertDoesNotThrow(() -> EmployeeAddressFactory.build("1EMP1", address));
     }
 }
