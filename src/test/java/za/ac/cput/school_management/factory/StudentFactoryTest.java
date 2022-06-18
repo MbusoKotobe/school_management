@@ -1,6 +1,9 @@
 package za.ac.cput.school_management.factory;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.school_management.domain.Name;
 import za.ac.cput.school_management.domain.Student;
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,23 +14,39 @@ student nr: 218216033
 factory Student testing
  */
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class StudentFactoryTest
 {
+
+    Name name = NameFactory.build("Ameer", "AI", "Ismail");
+
+    @Order(1)
     @Test
-    void createStudent()
+    public void InvalidEmail()
     {
+        Exception e = assertThrows(IllegalArgumentException.class, () ->
+             StudentFactory.build("ameer23", "invalidEmail", name));
+        String exception = e.getMessage();
+        System.out.println(exception);
+    }
 
-        Name name = NameFactory.build("Will", "Thomas", "Smith");
-        Student student = StudentFactory.build("Smith765", "smithw@gmail.com", name);
+    @Order(2)
+    @Test
+    public void NullName()
+    {
+        Exception e = assertThrows(IllegalArgumentException.class, () ->
+            StudentFactory.build("ameer2344", "ameer2344@gmail.com", null));
+        String eMessage = e.getMessage();
+        System.out.println(eMessage);
+    }
 
-        Name name2 = NameFactory.build("Jack", "Peter", "phillips");
-        Student student2 = StudentFactory.build("Phillips132","phillipsj@gmail.com", name2);
-
-        assertNotNull(student);
-        assertNotNull(student2);
-
-        System.out.println(student);
-        System.out.println(student2);
+    @Order(3)
+    @Test
+    public void ValuesSuccess()
+    {
+         Student student = StudentFactory.build("Ameer786", "ameer786@gmail.com", name);
+         assertNotNull(student);
+         System.out.println(student);
     }
 
 }
