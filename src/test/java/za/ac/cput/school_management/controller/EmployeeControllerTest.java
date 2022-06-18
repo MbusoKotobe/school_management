@@ -100,7 +100,7 @@ class EmployeeControllerTest {
     @Order(6)
     @Test
     void findAll(){
-        String url = baseUrl + "all";
+        String url = baseUrl + "find-all";
         System.out.println(url);
         ResponseEntity<Employee[]> response =
                 this.restTemplate.getForEntity(url, Employee[].class);

@@ -56,7 +56,7 @@ public CountryController(ICountryService countryService){
         this.countryService.deleteById(country);
         return ResponseEntity.noContent().build();
     }
-    @GetMapping("all")
+    @GetMapping("find-all")
     public ResponseEntity<List<Country>> findAll(){
         List<Country> countryList = this.countryService.findAll();
         return ResponseEntity.ok(countryList);

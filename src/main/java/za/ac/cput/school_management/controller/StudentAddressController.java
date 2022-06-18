@@ -73,7 +73,7 @@ public class StudentAddressController {
         this.studentAddressService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-    @GetMapping("all")
+    @GetMapping("find-all")
     public ResponseEntity<List<StudentAddress>> findAll(){
         List<StudentAddress> studentAddressList = this.studentAddressService.findAll();
         return ResponseEntity.ok(studentAddressList);

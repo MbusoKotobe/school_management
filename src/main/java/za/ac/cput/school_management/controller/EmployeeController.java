@@ -69,7 +69,7 @@ public class EmployeeController {
         return ResponseEntity.ok(employee);
     }
 
-    @GetMapping("all")
+    @GetMapping("find-all")
     public ResponseEntity<List<Employee>> findAll(){
         List<Employee> employeeList = this.employeeService.findAll();
         return ResponseEntity.ok(employeeList);

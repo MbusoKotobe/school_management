@@ -65,7 +65,7 @@ public class EmployeeAddressController {
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("delete-by-id/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable String id)
     {
         service.deleteById(id);

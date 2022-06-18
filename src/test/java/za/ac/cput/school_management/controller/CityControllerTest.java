@@ -83,7 +83,7 @@ class CityControllerTest {
     @Order(5)
     @Test
     void findAll(){
-        String url = baseUrl + "all";
+        String url = baseUrl + "find-all";
         System.out.println(url);
         ResponseEntity<City[]>response = this.restTemplate.getForEntity(url, City[].class);
         System.out.println(Arrays.asList(response.getBody()));

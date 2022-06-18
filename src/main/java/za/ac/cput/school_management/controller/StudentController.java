@@ -65,7 +65,7 @@ public class StudentController {
     }
 
     //find all
-    @GetMapping("findAll")
+    @GetMapping("find-all")
     public ResponseEntity<List<Student>> findAll() {
         List<Student> sList = this.studentService.findAll();
 

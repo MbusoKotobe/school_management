@@ -90,7 +90,7 @@ class StudentAddressControllerTest {
     @Order(5)
     @Test
     void findAll(){
-        String url = baseUrl + "all";
+        String url = baseUrl + "find-all";
         System.out.println(url);
         ResponseEntity<StudentAddress[]> response =
                 this.restTemplate.getForEntity(url, StudentAddress[].class);

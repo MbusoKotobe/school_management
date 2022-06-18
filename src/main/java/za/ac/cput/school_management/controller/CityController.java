@@ -68,7 +68,7 @@ public class CityController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("all")
+    @GetMapping("find-all")
     public ResponseEntity<List<City>> findAll() {
         List<City> cityList = this.cityService.findAll();
         return ResponseEntity.ok(cityList);

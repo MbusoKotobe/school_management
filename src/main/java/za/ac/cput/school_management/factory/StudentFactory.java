@@ -15,7 +15,9 @@ public class StudentFactory
 {
     public static Student build(String studentId, String email, Name name)
     {
+        Helper.checkStringParam("studentId", studentId);
         Helper.checkIfObjectNull("Name", name);
+        Helper.checkStringParam("email", email);
         Helper.checkEmail(email);
 
         return new Student.Builder()

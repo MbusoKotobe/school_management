@@ -84,7 +84,7 @@ class StudentControllerTest
     // finding
     void findAll()
     {
-        String url = Url + "findAll";
+        String url = Url + "find-all";
         System.out.println(url);
 
         ResponseEntity<Student[]> response = this.restTemplate.getForEntity(url, Student[].class);
