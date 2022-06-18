@@ -11,6 +11,7 @@ import za.ac.cput.school_management.domain.Employee;
 
 import java.util.Optional;
 
+
 @Repository
 public interface IEmployeeRepository extends JpaRepository<Employee, String> {
 

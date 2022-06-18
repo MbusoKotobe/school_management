@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 
 /**
  * @author Mbuso Kotobe (218040385)
- * Entity for Address
+ * AddressFactory
  * Date: 10 June 2022
  * */
 @Slf4j

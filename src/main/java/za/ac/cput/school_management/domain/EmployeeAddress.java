@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  * @author Mbuso Kotobe (218040385)
- * Entity for Address
+ * Entity for EmployeeAddress
  * Date: 10 June 2022
  * */
 
