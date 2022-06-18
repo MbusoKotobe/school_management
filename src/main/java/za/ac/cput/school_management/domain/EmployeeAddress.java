@@ -4,6 +4,9 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+
+import java.io.Serializable;
+
 import java.util.Objects;
 
 /**
@@ -11,8 +14,10 @@ import java.util.Objects;
  * Entity for Address
  * Date: 10 June 2022
  * */
+
+
 @Entity
-public class EmployeeAddress {
+public class EmployeeAddress implements Serializable{
 
     @Id
     @NotNull

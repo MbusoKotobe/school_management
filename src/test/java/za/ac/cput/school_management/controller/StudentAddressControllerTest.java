@@ -7,14 +7,10 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.school_management.domain.Address;
-import za.ac.cput.school_management.domain.City;
-import za.ac.cput.school_management.domain.Country;
-import za.ac.cput.school_management.domain.StudentAddress;
-import za.ac.cput.school_management.factory.AddressFactory;
-import za.ac.cput.school_management.factory.CityFactory;
-import za.ac.cput.school_management.factory.CountryFactory;
-import za.ac.cput.school_management.factory.StudentAddressFactory;
+
+import za.ac.cput.school_management.domain.*;
+import za.ac.cput.school_management.factory.*;
+import za.ac.cput.school_management.service.studentService.IStudentService;
 
 import java.util.Arrays;
 
@@ -30,9 +26,14 @@ class StudentAddressControllerTest {
     @Autowired
     private StudentAddressController controller;
     @Autowired private TestRestTemplate restTemplate;
+
+    @Autowired private IStudentService studentService;
     private StudentAddress studentAddress;
     private Address address;
     private String baseUrl;
+
+    private Student student;
+    private Name name;
 
     @BeforeEach
     void setUp() {
@@ -43,6 +44,12 @@ class StudentAddressControllerTest {
                 "one","02", "TWO","1005", city);
         this.studentAddress = StudentAddressFactory.build("22", address);
         this.baseUrl = "http://localhost:" + this.port + "/school-management/student-address/";
+
+        //Creating and saving a student to run test for Question 8:
+        this.name = NameFactory.build("Ameer", "", "Ismail");
+        this.student = StudentFactory.build("ameer567", "ameer567@gmail.com", name);
+        this.studentService.save(student);
+
     }
 
     @Order(1)
@@ -72,7 +79,7 @@ class StudentAddressControllerTest {
         );
     }
 
-    @Order(3)
+    @Order(4)
     @Test
     void delete(){
         String url = baseUrl + "delete/" + this.studentAddress.getStudentId();
@@ -80,7 +87,7 @@ class StudentAddressControllerTest {
         this.restTemplate.delete(url);
     }
 
-    @Order(4)
+    @Order(5)
     @Test
     void findAll(){
         String url = baseUrl + "all";
@@ -91,6 +98,20 @@ class StudentAddressControllerTest {
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
                 () -> assertEquals(0, response.getBody().length)
+        );
+    }
+
+//    Question 8:
+    @Order(3)
+    @Test
+    void findStudentsInCountry(){
+        String url = baseUrl + "read-last-name-by-country-id/" + studentAddress.getAddress().getCity().getCountry().getCountryId();
+        System.out.println(url);
+        ResponseEntity<String[]> response = this.restTemplate.getForEntity(url, String[].class);
+        System.out.println(response.getBody());
+        assertAll(
+                () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
+                () -> assertEquals(1, response.getBody().length)
         );
     }
 }

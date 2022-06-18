@@ -57,11 +57,23 @@ class EmployeeServiceImplTest {
         assertEquals(1,employeeList.size());
     }
 
-    @Order(4)
+    @Order(5)
     @Test
     void delete(){
         this.employeeService.deleteById(this.employee.getStaffId());
         List<Employee> employeeList = this.employeeService.findAll();
         assertEquals(0,employeeList.size());
+    }
+
+    @Order(4)
+    @Test
+    void findByEmail(){
+        Optional<Employee> employeesList = this.employeeService.findByEmail(employee.getEmail());
+        Name nameByEmail = employeesList.get().getName();
+        assertAll(
+                () -> assertNotNull(nameByEmail),
+                () -> assertEquals(name, nameByEmail)
+        );
+
     }
 }

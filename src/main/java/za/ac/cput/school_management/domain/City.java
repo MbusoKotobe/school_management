@@ -13,11 +13,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import java.io.Serializable;
+import java.util.Objects;
+
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.PERSIST;
 
+
 @Entity
-public class City {
+public class City implements Serializable {
     @Id
     private String id;
 
@@ -51,6 +55,19 @@ public class City {
         return country;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        City city = (City) o;
+        return id.equals(city.id) && name.equals(city.name) && country.equals(city.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, country);
+    }
+
     public static class Builder {
         private String id;
         private String name;
@@ -74,11 +91,6 @@ public class City {
             return this;
         }
 
-        @Override
-        public String toString()
-        {
-            return "Builder{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", country=" + country + '}';
-        }
 
         public City build()
         {

@@ -12,10 +12,8 @@ import za.ac.cput.school_management.factory.CityFactory;
 import za.ac.cput.school_management.factory.CountryFactory;
 import za.ac.cput.school_management.factory.EmployeeAddressFactory;
 import za.ac.cput.school_management.service.employeeAddressService.IEmployeeAddressService;
-
 import java.util.List;
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest

@@ -34,6 +34,6 @@ class StudentAddressFactoryTest {
 
         String exceptionMessage = exception.getMessage();
         System.out.println(exceptionMessage);
-        assertSame("Student id is required!", exceptionMessage);
+        assertTrue(exceptionMessage.equals("Invalid value for: studentId"));
     }
 }
