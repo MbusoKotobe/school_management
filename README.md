@@ -19,6 +19,8 @@ This would allow StudentAddress and EmployeeAddress to behave like a bridging en
 2. The requirements document could be improved further as it lacks information in terms of which services should be exposed and which should not, specifically referring to the read, save, delete, readAll services.
 
 3. Due to the flaw mentioned -> ***Flaws found in the UML Diagram (#3)***. During a save procedure of a StudentAddress or EmployeeAddress, it is possible to save an EmployeeAddress or StudentAddress with an stuffId or studentId that does not exist in the Employee or Student table. 
+
+4. When running tests on 3 of the 4 additional services we noted that we received errors upon research we have identified that these errors occured due to poor uml domain design.
 ---
 
 ## Repository Interfaces & Classes Naming Convention
